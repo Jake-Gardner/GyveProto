@@ -13,7 +13,7 @@
 
 +(FakeDB*)sharedDB;
 -(void)saveItem:(ItemModel*)item;
--(ItemModel*)getNextItem;
+-(void)getNextItem:(void(^)(ItemModel*))callback;
 -(void)removeItem:(ItemModel*)item;
 
 @end

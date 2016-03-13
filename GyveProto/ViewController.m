@@ -11,8 +11,9 @@
 #import "UIViewController+UIViewControllerExtensions.h"
 #import "FakeDB.h"
 #import "ViewItemViewController.h"
+@import CoreLocation;
 
-@interface ViewController ()
+@interface ViewController ()<CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bottomOverlay;
 @property (weak, nonatomic) IBOutlet UIButton *junkButton;
 @property (weak, nonatomic) IBOutlet UIButton *passButton;
@@ -32,6 +33,33 @@
     [super viewDidLoad];
     
     [self styleView];
+    [self startStandardUpdates];
+}
+
+- (void)startStandardUpdates {
+    // Create the location manager if this object does not
+    // already have one.
+    CLLocationManager* locationManager = [[CLLocationManager alloc] init];
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    
+    // Set a movement threshold for new events.
+    locationManager.distanceFilter = 500; // meters
+    
+    [locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation* location = [locations lastObject];
+    NSDate* eventDate = location.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    if (fabs(howRecent) < 15.0) {
+        // If the event is recent, do something with it.
+        NSLog(@"latitude %+.6f, longitude %+.6f\n",
+              location.coordinate.latitude,
+              location.coordinate.longitude);
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -49,7 +77,12 @@
 }
 
 -(void)refreshItemView {
-    self.currentItem = [[FakeDB sharedDB] getNextItem];
+    __weak id me = self;
+    [[FakeDB sharedDB] getNextItem:^(ItemModel* nextItem) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [me setCurrentItem:nextItem];
+        });
+    }];
 }
 
 -(void)setCurrentItem:(ItemModel *)currentItem {
