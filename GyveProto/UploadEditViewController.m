@@ -26,8 +26,8 @@
 
 - (IBAction)onPostSelected:(id)sender {
     ItemModel* item = [[ItemModel alloc] initWithImage:self.image title:self.titleField.text];
-    [[FakeDB sharedDB] saveItem:item];
-    
+    [FakeDB saveItem:item];
+
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

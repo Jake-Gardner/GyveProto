@@ -78,7 +78,7 @@
 
 -(void)refreshItemView {
     __weak id me = self;
-    [[FakeDB sharedDB] getNextItem:^(ItemModel* nextItem) {
+    [FakeDB getNextItem:^(ItemModel* nextItem) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [me setCurrentItem:nextItem];
         });
@@ -104,12 +104,12 @@
 }
 
 - (IBAction)onSelectJunk:(id)sender {
-    [[FakeDB sharedDB] removeItem:self.currentItem];
+    [FakeDB removeItem:self.currentItem];
     [self refreshItemView];
 }
 
 - (IBAction)onSelectPass:(id)sender {
-    [[FakeDB sharedDB] removeItem:self.currentItem];
+    [FakeDB removeItem:self.currentItem];
     [self refreshItemView];
 }
 

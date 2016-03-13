@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D649B2691C960F3C00BD9C91 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D649B2681C960F3C00BD9C91 /* NetworkRequest.m */; };
 		D6FAB2F31C70369F007311AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F21C70369F007311AD /* main.m */; };
 		D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F51C70369F007311AD /* AppDelegate.m */; };
 		D6FAB2F91C70369F007311AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F81C70369F007311AD /* ViewController.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D649B2671C960F3C00BD9C91 /* NetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
+		D649B2681C960F3C00BD9C91 /* NetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkRequest.m; sourceTree = "<group>"; };
 		D6FAB2EE1C70369F007311AD /* GyveProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyveProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FAB2F21C70369F007311AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6FAB2F41C70369F007311AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -96,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D649B2661C960F2600BD9C91 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D649B2671C960F3C00BD9C91 /* NetworkRequest.h */,
+				D649B2681C960F3C00BD9C91 /* NetworkRequest.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		D6FAB2E51C70369E007311AD = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +130,7 @@
 		D6FAB2F01C70369F007311AD /* GyveProto */ = {
 			isa = PBXGroup;
 			children = (
+				D649B2661C960F2600BD9C91 /* Utils */,
 				D6FAB3351C717E20007311AD /* Data */,
 				D6FAB3341C717D09007311AD /* Views */,
 				D6FAB3241C712D7D007311AD /* Extensions */,
@@ -317,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6FAB2F91C70369F007311AD /* ViewController.m in Sources */,
+				D649B2691C960F3C00BD9C91 /* NetworkRequest.m in Sources */,
 				D6FAB32A1C712ECF007311AD /* UIView+UIViewExtensions.m in Sources */,
 				D6FAB32D1C7156A8007311AD /* ImageSelectorViewController.m in Sources */,
 				D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */,
@@ -548,6 +562,7 @@
 				D6FAB31D1C70369F007311AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D6FAB31E1C70369F007311AD /* Build configuration list for PBXNativeTarget "GyveProtoTests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +571,7 @@
 				D6FAB3201C70369F007311AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D6FAB3211C70369F007311AD /* Build configuration list for PBXNativeTarget "GyveProtoUITests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +580,7 @@
 				D6FAB3231C70369F007311AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
