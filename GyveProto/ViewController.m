@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIView *itemWrapper;
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
+@property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (nonatomic,retain) CLLocationManager *locationManager;
 
 @property (nonatomic) ItemModel* currentItem;
 
@@ -39,15 +41,18 @@
 - (void)startStandardUpdates {
     // Create the location manager if this object does not
     // already have one.
-    CLLocationManager* locationManager = [[CLLocationManager alloc] init];
+    self.locationManager = [[CLLocationManager alloc] init];
     
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     // Set a movement threshold for new events.
-    locationManager.distanceFilter = 500; // meters
+    self.locationManager.distanceFilter = 500; // meters
     
-    [locationManager startUpdatingLocation];
+    [self.locationManager requestWhenInUseAuthorization];
+  
+    [self.locationManager startUpdatingLocation];
+    [self displayDistance];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
@@ -55,10 +60,24 @@
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     if (fabs(howRecent) < 15.0) {
-        // If the event is recent, do something with it.
-        NSLog(@"latitude %+.6f, longitude %+.6f\n",
-              location.coordinate.latitude,
-              location.coordinate.longitude);
+        [self displayDistance];
+    }
+}
+
+#define METERS_TO_MILES 1609.344
+
+- (void ) displayDistance {
+    //TODO get item location
+    CLLocation *itemLocation = [[CLLocation alloc] initWithLatitude:10 longitude:5];
+    
+    CLLocationDistance meters = [self.locationManager.location distanceFromLocation:itemLocation];
+    
+    self.distanceLabel.text = [NSString stringWithFormat:@"%4.0f Miles Away", meters/METERS_TO_MILES];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    //todo log error
+    if ([error code] != kCLErrorLocationUnknown) {
     }
 }
 
