@@ -22,6 +22,7 @@
 		D6FAB3381C717E54007311AD /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB3371C717E54007311AD /* ItemModel.m */; };
 		D6FAB33B1C7180F9007311AD /* FakeDB.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB33A1C7180F9007311AD /* FakeDB.m */; };
 		D6FAB33E1C71ACCD007311AD /* ViewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */; };
+		D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		D6FAB33A1C7180F9007311AD /* FakeDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeDB.m; sourceTree = "<group>"; };
 		D6FAB33C1C71ACCD007311AD /* ViewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewItemViewController.h; sourceTree = "<group>"; };
 		D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewItemViewController.m; sourceTree = "<group>"; };
+		D7EA87A61C9B19C900881A1C /* RoundedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderButton.h; sourceTree = "<group>"; };
+		D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +178,7 @@
 		D6FAB3341C717D09007311AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D7EA87A51C9B133800881A1C /* ib designables */,
 				D6FAB2FA1C70369F007311AD /* Main.storyboard */,
 				D6FAB2F71C70369F007311AD /* ViewController.h */,
 				D6FAB2F81C70369F007311AD /* ViewController.m */,
@@ -197,6 +201,15 @@
 				D6FAB33A1C7180F9007311AD /* FakeDB.m */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		D7EA87A51C9B133800881A1C /* ib designables */ = {
+			isa = PBXGroup;
+			children = (
+				D7EA87A61C9B19C900881A1C /* RoundedBorderButton.h */,
+				D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */,
+			);
+			name = "ib designables";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +349,7 @@
 				D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */,
 				D6FAB33E1C71ACCD007311AD /* ViewItemViewController.m in Sources */,
 				D6FAB33B1C7180F9007311AD /* FakeDB.m in Sources */,
+				D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */,
 				D6FAB2F31C70369F007311AD /* main.m in Sources */,
 				D6FAB3331C716E46007311AD /* UploadEditViewController.m in Sources */,
 				D6FAB3381C717E54007311AD /* ItemModel.m in Sources */,
