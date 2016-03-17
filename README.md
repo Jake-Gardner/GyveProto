@@ -13,3 +13,10 @@
 
 1. Run `mongod` in a terminal window
 2. From the "meanjs" directory, run `node server.js`
+
+## Troubleshooting
+
+### IOS - Item distance is showing as 0 miles
+1. Click in simulator and go to the topbar Simulator -> Reset Content and Settings
+2. Select Reset 
+3. Rebuild to Simulator

@@ -8,6 +8,13 @@
 
 #import "BorderView.h"
 
+@interface BorderView ()
+@property (nonatomic, weak) CALayer *topLayer;
+@property (nonatomic, weak) CALayer *leftLayer;
+@property (nonatomic, weak) CALayer *bottomLayer;
+@property (nonatomic, weak) CALayer *rightLayer;
+@end
+
 @implementation BorderView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -34,7 +41,6 @@
 
 -(void) setup {
     if (self) {
-        //self.layer
         [self topBorderSetup];
         [self rightBorderSetup];
         [self bottomBorderSetup];
@@ -43,6 +49,10 @@
 }
 
 -(void) topBorderSetup {
+    if (self.topLayer) {
+        [self.topLayer removeFromSuperlayer];
+    }
+    
     if (!self.topWidth || !self.topColor) {
         return;
     }
@@ -52,9 +62,14 @@
     border.backgroundColor = self.topColor.CGColor;
     border.frame = CGRectMake(0, 0, self.frame.size.width, self.topWidth);
     [self.layer addSublayer:border];
+    self.bottomLayer = border;
 }
 
 -(void) rightBorderSetup {
+    if (self.rightLayer) {
+        [self.rightLayer removeFromSuperlayer];
+    }
+    
     if (!self.rightWidth || !self.rightColor) {
         return;
     }
@@ -65,9 +80,14 @@
 
     border.frame = CGRectMake(self.frame.size.width - self.rightWidth, 0, self.rightWidth, self.frame.size.height);
     [self.layer addSublayer:border];
+    self.rightLayer = border;
 }
 
 -(void) bottomBorderSetup {
+    if (self.bottomLayer) {
+        [self.bottomLayer removeFromSuperlayer];
+    }
+    
     if (!self.bottomWidth || !self.bottomColor) {
         return;
     }
@@ -77,9 +97,14 @@
     border.backgroundColor = self.bottomColor.CGColor;
     border.frame = CGRectMake(0, self.frame.size.height - self.bottomWidth, self.frame.size.width, self.bottomWidth);
     [self.layer addSublayer:border];
+    self.bottomLayer = border;
 }
 
 -(void) leftBorderSetup {
+    if (self.leftLayer) {
+        [self.leftLayer removeFromSuperlayer];
+    }
+    
     if (!self.leftWidth || !self.leftColor) {
         return;
     }
@@ -89,6 +114,7 @@
     border.backgroundColor = self.leftColor.CGColor;
     border.frame = CGRectMake(0, 0, self.leftWidth, self.frame.size.height);
     [self.layer addSublayer:border];
+    self.leftLayer = border;
 }
 
 @end

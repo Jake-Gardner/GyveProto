@@ -38,6 +38,12 @@
     [self startStandardUpdates];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self refreshItemView];
+}
+
 - (void)startStandardUpdates {
     // Create the location manager if this object does not
     // already have one.
@@ -81,18 +87,9 @@
     }
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    [self refreshItemView];
-}
-
 -(void)styleView {
-    [self.junkButton setBorder:[UIColor whiteColor] width:1.0];
-    [self.passButton setBorder:[UIColor whiteColor] width:1.0];
-    [self.wantButton setBorder:[UIColor whiteColor] width:1.0];
-    
-    [self.bottomOverlay addLinearGradient:[UIColor darkGrayColor] topColor:[UIColor clearColor]];
+    //todo is this an expected gradient?  it looks wrong
+    //[self.bottomOverlay addLinearGradient:[UIColor darkGrayColor] topColor:[UIColor clearColor]];
 }
 
 -(void)refreshItemView {

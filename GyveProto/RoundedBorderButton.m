@@ -34,6 +34,8 @@
         if (self.borderColor && self.borderWidth) {
             self.layer.borderColor = self.borderColor.CGColor;
             self.layer.borderWidth = self.borderWidth;
+        } else {
+            self.layer.borderWidth = 0;
         }
     }
 }
