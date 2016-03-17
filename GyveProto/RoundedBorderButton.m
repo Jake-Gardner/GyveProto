@@ -29,10 +29,18 @@
 
 -(void) setup {
     if (self) {
-        self.layer.cornerRadius = 90;
-        self.layer.borderColor = self.borderColor.CGColor;
-        self.layer.borderWidth = self.borderWidth;
+        self.layer.cornerRadius = self.layer.frame.size.height/2;
+        
+        if (self.borderColor && self.borderWidth) {
+            self.layer.borderColor = self.borderColor.CGColor;
+            self.layer.borderWidth = self.borderWidth;
+        }
     }
+}
+
+-(void) layoutSubviews {
+    [super layoutSubviews];
+    [self setup];
 }
 
 @end

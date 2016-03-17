@@ -23,6 +23,7 @@
 		D6FAB33B1C7180F9007311AD /* FakeDB.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB33A1C7180F9007311AD /* FakeDB.m */; };
 		D6FAB33E1C71ACCD007311AD /* ViewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */; };
 		D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */; };
+		D7EA87AC1C9B3FC700881A1C /* BorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87AB1C9B3FC700881A1C /* BorderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewItemViewController.m; sourceTree = "<group>"; };
 		D7EA87A61C9B19C900881A1C /* RoundedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderButton.h; sourceTree = "<group>"; };
 		D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderButton.m; sourceTree = "<group>"; };
+		D7EA87AA1C9B3FC700881A1C /* BorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderView.h; sourceTree = "<group>"; };
+		D7EA87AB1C9B3FC700881A1C /* BorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +211,8 @@
 			children = (
 				D7EA87A61C9B19C900881A1C /* RoundedBorderButton.h */,
 				D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */,
+				D7EA87AA1C9B3FC700881A1C /* BorderView.h */,
+				D7EA87AB1C9B3FC700881A1C /* BorderView.m */,
 			);
 			name = "ib designables";
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7EA87AC1C9B3FC700881A1C /* BorderView.m in Sources */,
 				D6FAB2F91C70369F007311AD /* ViewController.m in Sources */,
 				D649B2691C960F3C00BD9C91 /* NetworkRequest.m in Sources */,
 				D6FAB32A1C712ECF007311AD /* UIView+UIViewExtensions.m in Sources */,
