@@ -432,6 +432,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ff-mc-Gdo" userLabel="user button">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
                                                         <state key="normal" title="prf"/>
+                                                        <connections>
+                                                            <action selector="onProfileSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XgQ-k0-WRx"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -511,6 +514,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="262" y="508"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="MUg-3c-zdB">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p2q-km-L2t" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bE9-cv-4wl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pud-UZ-XoG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CnZ-kW-F3j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3CQ-61-Wwn" userLabel="wrapper">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3CQ-61-Wwn" firstAttribute="top" secondItem="bE9-cv-4wl" secondAttribute="bottom" id="9N4-on-CNO"/>
+                            <constraint firstItem="Pud-UZ-XoG" firstAttribute="top" secondItem="3CQ-61-Wwn" secondAttribute="bottom" id="9jr-PT-BQ3"/>
+                            <constraint firstItem="3CQ-61-Wwn" firstAttribute="leading" secondItem="CnZ-kW-F3j" secondAttribute="leading" id="J0x-nc-WOR"/>
+                            <constraint firstAttribute="trailing" secondItem="3CQ-61-Wwn" secondAttribute="trailing" id="etU-Sk-dIl"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="wrapperView" destination="3CQ-61-Wwn" id="zAU-ug-cKO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pyt-1h-hT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="534" y="1318"/>
         </scene>
         <!--Image Selector View Controller-->
         <scene sceneID="vjN-OY-NVC">

@@ -24,6 +24,10 @@
 		D6FAB33E1C71ACCD007311AD /* ViewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */; };
 		D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */; };
 		D7EA87AC1C9B3FC700881A1C /* BorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87AB1C9B3FC700881A1C /* BorderView.m */; };
+		D7EA87B01C9C8EC100881A1C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA87AD1C9C8EC100881A1C /* FBSDKCoreKit.framework */; };
+		D7EA87B11C9C8EC100881A1C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA87AE1C9C8EC100881A1C /* FBSDKLoginKit.framework */; };
+		D7EA87B21C9C8EC100881A1C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA87AF1C9C8EC100881A1C /* FBSDKShareKit.framework */; };
+		D7EA87B61C9C912400881A1C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87B51C9C912400881A1C /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,11 @@
 		D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderButton.m; sourceTree = "<group>"; };
 		D7EA87AA1C9B3FC700881A1C /* BorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderView.h; sourceTree = "<group>"; };
 		D7EA87AB1C9B3FC700881A1C /* BorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderView.m; sourceTree = "<group>"; };
+		D7EA87AD1C9C8EC100881A1C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-20160316/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		D7EA87AE1C9C8EC100881A1C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-20160316/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		D7EA87AF1C9C8EC100881A1C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "FacebookSDKs-iOS-20160316/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		D7EA87B41C9C912400881A1C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D7EA87B51C9C912400881A1C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7EA87B11C9C8EC100881A1C /* FBSDKLoginKit.framework in Frameworks */,
+				D7EA87B01C9C8EC100881A1C /* FBSDKCoreKit.framework in Frameworks */,
+				D7EA87B21C9C8EC100881A1C /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +129,7 @@
 		D6FAB2E51C70369E007311AD = {
 			isa = PBXGroup;
 			children = (
+				D7EA87B31C9C8ED900881A1C /* Frameworks */,
 				D6FAB2F01C70369F007311AD /* GyveProto */,
 				D6FAB30A1C70369F007311AD /* GyveProtoTests */,
 				D6FAB2EF1C70369F007311AD /* Products */,
@@ -191,6 +204,8 @@
 				D6FAB3321C716E46007311AD /* UploadEditViewController.m */,
 				D6FAB33C1C71ACCD007311AD /* ViewItemViewController.h */,
 				D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */,
+				D7EA87B41C9C912400881A1C /* LoginViewController.h */,
+				D7EA87B51C9C912400881A1C /* LoginViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -215,6 +230,16 @@
 				D7EA87AB1C9B3FC700881A1C /* BorderView.m */,
 			);
 			name = "ib designables";
+			sourceTree = "<group>";
+		};
+		D7EA87B31C9C8ED900881A1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7EA87AD1C9C8EC100881A1C /* FBSDKCoreKit.framework */,
+				D7EA87AE1C9C8EC100881A1C /* FBSDKLoginKit.framework */,
+				D7EA87AF1C9C8EC100881A1C /* FBSDKShareKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +382,7 @@
 				D6FAB33B1C7180F9007311AD /* FakeDB.m in Sources */,
 				D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */,
 				D6FAB2F31C70369F007311AD /* main.m in Sources */,
+				D7EA87B61C9C912400881A1C /* LoginViewController.m in Sources */,
 				D6FAB3331C716E46007311AD /* UploadEditViewController.m in Sources */,
 				D6FAB3381C717E54007311AD /* ItemModel.m in Sources */,
 				D6FAB3301C71693B007311AD /* UIViewController+UIViewControllerExtensions.m in Sources */,
@@ -499,6 +525,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDKs-iOS-20160316",
+				);
 				INFOPLIST_FILE = GyveProto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -511,6 +541,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDKs-iOS-20160316",
+				);
 				INFOPLIST_FILE = GyveProto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

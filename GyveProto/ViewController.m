@@ -133,5 +133,8 @@
     ViewItemViewController* vc = (ViewItemViewController*)[self navigateToViewController:@"viewItem" fromStoryboard:@"Main"];
     vc.selectedItem = self.currentItem;
 }
+- (IBAction)onProfileSelected:(id)sender {
+    [self navigateToViewController:@"LoginViewController" fromStoryboard:@"Main"];
+}
 
 @end
