@@ -13,3 +13,5 @@ build/
 !default.xcworkspace
 xcuserdata
 profile
+# Node
+node_modules
