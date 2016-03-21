@@ -3,10 +3,11 @@
 var mongoose = require("mongoose");
 var express = require("express");
 var bodyParser = require("body-parser");
-
 var config = require("./config");
 
-var db = mongoose.connect(config.dbUri, {});
+mongoose.Promise = require("bluebird");
+mongoose.connect(config.dbUri, {});
+
 var app = express();
 
 app.use(bodyParser.urlencoded({
@@ -18,4 +19,5 @@ app.listen(config.port, config.host, function () {
 	console.log("App listening at " + config.host + ":" + config.port);
 });
 
+require("./routes/user.routes.js")(app);
 require("./routes/thing.routes.js")(app);

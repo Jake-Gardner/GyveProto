@@ -10,42 +10,40 @@ module.exports = function (app) {
 
 		Image.create({
 			data: req.file.buffer
+		}).then(function () {
+			res.sendStatus(200);
 		}, function (err) {
-			if (err) {
-				res.status(500).send(err);
-			} else {
-				res.sendStatus(200);
-			}
+			res.status(500).send(err);
 		});
 	});
 
 	app.get("/thingIds", function (req, res) {
 		console.log("Id list requested");
 
-		Image.find(function (err, images) {
-			if (err) {
-				res.status(500).send(err);
-			} else if (images.length > 0) {
-				var ids = _.map(images, "_id");
+		Image.find().then(function (images) {
+			if (images.length > 0) {
+				var ids = _.map(images, "id");
 				res.json({
 					ids: ids
 				});
 			} else {
 				res.sendStatus(404);
 			}
+		}, function (err) {
+			res.status(500).send(err);
 		});
 	});
 
 	app.get("/thing/:id", function (req, res) {
 		console.log("Item of id " + req.params.id + " requested");
 
-		Image.findById(req.params.id, function (err, image) {
-			if (err && err.name === "CastError") {
+		Image.findById(req.params.id).then(function (image) {
+			res.type("png").send(image.data);
+		}, function (err) {
+			if (err.name === "CastError") {
 				res.sendStatus(404);
-			} else if (err) {
-				res.status(500).send(err);
 			} else {
-				res.type("png").send(image.data);
+				res.status(500).send(err);
 			}
 		});
 	});
