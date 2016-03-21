@@ -1,0 +1,20 @@
+html
+  head
+    title Admin
+  body
+    h2 Users
+    each user in users
+      li
+        div id: #{user.fbId}
+        ul
+          li Gives: #{user.giveCount}
+          li Gets: #{user.getCount}
+          li
+            a(href='admin/removeUser/' + user.fbId) Delete
+    h2 Images
+    each image in images
+      li
+        a(href='thing/' + image._id) #{image._id}
+        ul
+          li
+            a(href='admin/removeImage/' + image._id) Delete

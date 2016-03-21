@@ -13,6 +13,7 @@
 
 1. Run `mongod` in a terminal window
 2. From the "server" directory, run `node app.js`
+  * Alternatively, install nodemon globally with `npm install -g nodemon` and then run the app with `nodemon app.js`
 
 ## Troubleshooting
 

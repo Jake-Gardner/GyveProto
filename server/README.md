@@ -19,3 +19,14 @@
 
 * POST /image
   * Takes a post body of image data and saves the image to the database
+
+### Admin endpoints
+
+* GET /admin
+  * Renders html page listing the contents of the database; links for individual items use other admin endpoints
+
+* GET /admin/removeUser/[id]
+  * Removes user from the database with the specified Facebook id
+
+* GET /admin/removeImage/[id]
+  * Removes image from the database with the specified id

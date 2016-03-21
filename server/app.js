@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 app.use(bodyParser.json());
+app.set("view engine", "jade");
 
 app.listen(config.port, config.host, function () {
 	console.log("App listening at " + config.host + ":" + config.port);
@@ -22,3 +23,4 @@ app.listen(config.port, config.host, function () {
 
 require("./routes/user.routes.js")(app);
 require("./routes/thing.routes.js")(app);
+require("./routes/admin.routes.js")(app);
