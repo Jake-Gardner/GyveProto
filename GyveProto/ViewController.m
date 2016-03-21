@@ -1,16 +1,8 @@
-//
-//  ViewController.m
-//  GyveProto
-//
-//  Created by Jake Gardner, CTO on 2/13/16.
-//  Copyright © 2016 Jake Gardner, CTO. All rights reserved.
-//
-
 #import "ViewController.h"
 #import "UIView+UIViewExtensions.h"
 #import "UIViewController+UIViewControllerExtensions.h"
-#import "FakeDB.h"
 #import "ViewItemViewController.h"
+#import "ThingService.h"
 @import CoreLocation;
 
 @interface ViewController ()<CLLocationManagerDelegate>
@@ -94,7 +86,7 @@
 
 -(void)refreshItemView {
     __weak id me = self;
-    [FakeDB getNextItem:^(ItemModel* nextItem) {
+    [[ThingService sharedService] loadNextThing:^(ItemModel* nextItem) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [me setCurrentItem:nextItem];
         });
@@ -104,13 +96,13 @@
 -(void)setCurrentItem:(ItemModel *)currentItem {
     _currentItem = currentItem;
     
-    self.noItemsLabel.hidden = !!currentItem;
-    self.itemWrapper.hidden = !currentItem;
-    
-    if (currentItem) {
-        self.itemImage.image = currentItem.image;
-        self.itemTitle.text = currentItem.title;
-    }
+//    self.noItemsLabel.hidden = !!currentItem;
+//    self.itemWrapper.hidden = !currentItem;
+//    
+//    if (currentItem) {
+//        self.itemImage.image = currentItem.image;
+//        self.itemTitle.text = currentItem.title;
+//    }
 }
 
 #pragma mark - Interface interactions
@@ -120,12 +112,12 @@
 }
 
 - (IBAction)onSelectJunk:(id)sender {
-    [FakeDB removeItem:self.currentItem];
+    // TODO: post to server, show next item
     [self refreshItemView];
 }
 
 - (IBAction)onSelectPass:(id)sender {
-    [FakeDB removeItem:self.currentItem];
+    // TODO: post to server, show next item
     [self refreshItemView];
 }
 

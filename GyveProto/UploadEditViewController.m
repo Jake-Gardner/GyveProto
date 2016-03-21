@@ -1,13 +1,5 @@
-//
-//  UploadEditViewController.m
-//  GyveProto
-//
-//  Created by Jake Gardner, CTO on 2/14/16.
-//  Copyright © 2016 Jake Gardner, CTO. All rights reserved.
-//
-
 #import "UploadEditViewController.h"
-#import "FakeDB.h"
+#import "ThingService.h"
 
 @interface UploadEditViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *previewImage;
@@ -26,7 +18,7 @@
 
 - (IBAction)onPostSelected:(id)sender {
     ItemModel* item = [[ItemModel alloc] initWithImage:self.image title:self.titleField.text];
-    [FakeDB saveItem:item];
+    [[ThingService sharedService] saveThing:item];
 
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

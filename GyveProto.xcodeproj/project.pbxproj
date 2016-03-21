@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D649B2691C960F3C00BD9C91 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D649B2681C960F3C00BD9C91 /* NetworkRequest.m */; };
+		D649B26C1C9A5A6500BD9C91 /* ThingService.m in Sources */ = {isa = PBXBuildFile; fileRef = D649B26B1C9A5A6500BD9C91 /* ThingService.m */; };
+		D649B26F1C9A601700BD9C91 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D649B26E1C9A601700BD9C91 /* JSONParser.m */; };
 		D6FAB2F31C70369F007311AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F21C70369F007311AD /* main.m */; };
 		D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F51C70369F007311AD /* AppDelegate.m */; };
 		D6FAB2F91C70369F007311AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F81C70369F007311AD /* ViewController.m */; };
@@ -20,7 +22,6 @@
 		D6FAB3301C71693B007311AD /* UIViewController+UIViewControllerExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB32F1C71693B007311AD /* UIViewController+UIViewControllerExtensions.m */; };
 		D6FAB3331C716E46007311AD /* UploadEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB3321C716E46007311AD /* UploadEditViewController.m */; };
 		D6FAB3381C717E54007311AD /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB3371C717E54007311AD /* ItemModel.m */; };
-		D6FAB33B1C7180F9007311AD /* FakeDB.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB33A1C7180F9007311AD /* FakeDB.m */; };
 		D6FAB33E1C71ACCD007311AD /* ViewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */; };
 		D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */; };
 		D7EA87AC1C9B3FC700881A1C /* BorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87AB1C9B3FC700881A1C /* BorderView.m */; };
@@ -50,6 +51,10 @@
 /* Begin PBXFileReference section */
 		D649B2671C960F3C00BD9C91 /* NetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
 		D649B2681C960F3C00BD9C91 /* NetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkRequest.m; sourceTree = "<group>"; };
+		D649B26A1C9A5A6500BD9C91 /* ThingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThingService.h; sourceTree = "<group>"; };
+		D649B26B1C9A5A6500BD9C91 /* ThingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThingService.m; sourceTree = "<group>"; };
+		D649B26D1C9A601700BD9C91 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
+		D649B26E1C9A601700BD9C91 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
 		D6FAB2EE1C70369F007311AD /* GyveProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyveProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FAB2F21C70369F007311AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6FAB2F41C70369F007311AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,8 +79,6 @@
 		D6FAB3321C716E46007311AD /* UploadEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadEditViewController.m; sourceTree = "<group>"; };
 		D6FAB3361C717E54007311AD /* ItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemModel.h; sourceTree = "<group>"; };
 		D6FAB3371C717E54007311AD /* ItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemModel.m; sourceTree = "<group>"; };
-		D6FAB3391C7180F9007311AD /* FakeDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeDB.h; sourceTree = "<group>"; };
-		D6FAB33A1C7180F9007311AD /* FakeDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeDB.m; sourceTree = "<group>"; };
 		D6FAB33C1C71ACCD007311AD /* ViewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewItemViewController.h; sourceTree = "<group>"; };
 		D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewItemViewController.m; sourceTree = "<group>"; };
 		D7EA87A61C9B19C900881A1C /* RoundedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderButton.h; sourceTree = "<group>"; };
@@ -215,8 +218,10 @@
 			children = (
 				D6FAB3361C717E54007311AD /* ItemModel.h */,
 				D6FAB3371C717E54007311AD /* ItemModel.m */,
-				D6FAB3391C7180F9007311AD /* FakeDB.h */,
-				D6FAB33A1C7180F9007311AD /* FakeDB.m */,
+				D649B26A1C9A5A6500BD9C91 /* ThingService.h */,
+				D649B26B1C9A5A6500BD9C91 /* ThingService.m */,
+				D649B26D1C9A601700BD9C91 /* JSONParser.h */,
+				D649B26E1C9A601700BD9C91 /* JSONParser.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -373,19 +378,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7EA87AC1C9B3FC700881A1C /* BorderView.m in Sources */,
+				D649B26C1C9A5A6500BD9C91 /* ThingService.m in Sources */,
 				D6FAB2F91C70369F007311AD /* ViewController.m in Sources */,
 				D649B2691C960F3C00BD9C91 /* NetworkRequest.m in Sources */,
 				D6FAB32A1C712ECF007311AD /* UIView+UIViewExtensions.m in Sources */,
 				D6FAB32D1C7156A8007311AD /* ImageSelectorViewController.m in Sources */,
 				D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */,
 				D6FAB33E1C71ACCD007311AD /* ViewItemViewController.m in Sources */,
-				D6FAB33B1C7180F9007311AD /* FakeDB.m in Sources */,
 				D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */,
 				D6FAB2F31C70369F007311AD /* main.m in Sources */,
 				D7EA87B61C9C912400881A1C /* LoginViewController.m in Sources */,
 				D6FAB3331C716E46007311AD /* UploadEditViewController.m in Sources */,
 				D6FAB3381C717E54007311AD /* ItemModel.m in Sources */,
 				D6FAB3301C71693B007311AD /* UIViewController+UIViewControllerExtensions.m in Sources */,
+				D649B26F1C9A601700BD9C91 /* JSONParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
