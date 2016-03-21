@@ -12,7 +12,7 @@ module.exports = function (app) {
 			data: req.file.buffer
 		}).then(function () {
 			res.sendStatus(200);
-		}, function (err) {
+		}).catch(function (err) {
 			res.status(500).send(err);
 		});
 	});
@@ -29,7 +29,7 @@ module.exports = function (app) {
 			} else {
 				res.sendStatus(404);
 			}
-		}, function (err) {
+		}).catch(function (err) {
 			res.status(500).send(err);
 		});
 	});
@@ -39,7 +39,7 @@ module.exports = function (app) {
 
 		Image.findById(req.params.id).then(function (image) {
 			res.type("png").send(image.data);
-		}, function (err) {
+		}).catch(function (err) {
 			if (err.name === "CastError") {
 				res.sendStatus(404);
 			} else {

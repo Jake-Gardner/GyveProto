@@ -21,7 +21,7 @@ module.exports = function (app) {
 			});
 		}).then(function (user) {
 			res.json(user);
-		}, function (err) {
+		}).catch(function (err) {
 			res.status(500).send(err);
 		});
 	});
