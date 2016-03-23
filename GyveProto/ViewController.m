@@ -3,6 +3,8 @@
 #import "UIViewController+UIViewControllerExtensions.h"
 #import "ViewItemViewController.h"
 #import "ThingService.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 @import CoreLocation;
 
 @interface ViewController ()<CLLocationManagerDelegate>
@@ -16,7 +18,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (nonatomic,retain) CLLocationManager *locationManager;
+@property (strong, nonatomic) IBOutlet UIView *itemActionWrapper;
+@property (strong, nonatomic) IBOutlet UIView *fbLoginWrapper;
+@property (strong, nonatomic) IBOutlet UIView *fbButtonWrapper;
 
+
+@property (nonatomic) BOOL loggedIn;
 @property (nonatomic) ItemModel* currentItem;
 
 @end
@@ -25,15 +32,15 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self styleView];
+
     [self startStandardUpdates];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self refreshItemView];
+    //breaking app
+    //[self refreshItemView];
 }
 
 - (void)startStandardUpdates {
@@ -79,11 +86,6 @@
     }
 }
 
--(void)styleView {
-    //todo is this an expected gradient?  it looks wrong
-    //[self.bottomOverlay addLinearGradient:[UIColor darkGrayColor] topColor:[UIColor clearColor]];
-}
-
 -(void)refreshItemView {
     __weak id me = self;
     [[ThingService sharedService] loadNextThing:^(ItemModel* nextItem) {
@@ -96,37 +98,43 @@
 -(void)setCurrentItem:(ItemModel *)currentItem {
     _currentItem = currentItem;
     
-//    self.noItemsLabel.hidden = !!currentItem;
-//    self.itemWrapper.hidden = !currentItem;
-//    
-//    if (currentItem) {
-//        self.itemImage.image = currentItem.image;
-//        self.itemTitle.text = currentItem.title;
-//    }
+    self.noItemsLabel.hidden = !!currentItem;
+    self.itemWrapper.hidden = !currentItem;
+    
+    if (currentItem) {
+        self.itemImage.image = currentItem.image;
+        self.itemTitle.text = currentItem.title;
+    }
 }
 
 #pragma mark - Interface interactions
 
--(IBAction)onSelectCamera:(id)sender {
-    [self navigateToViewController:@"imageSelector" fromStoryboard:@"Main"];
-}
-
 - (IBAction)onSelectJunk:(id)sender {
     // TODO: post to server, show next item
-    [self refreshItemView];
+    // [self refreshItemView];
 }
 
 - (IBAction)onSelectPass:(id)sender {
     // TODO: post to server, show next item
-    [self refreshItemView];
+    //  [self refreshItemView];
 }
 
 - (IBAction)onSelectWant:(id)sender {
-    ViewItemViewController* vc = (ViewItemViewController*)[self navigateToViewController:@"viewItem" fromStoryboard:@"Main"];
-    vc.selectedItem = self.currentItem;
+    if (self.loggedIn) {
+        ViewItemViewController* vc = (ViewItemViewController*)[self navigateToViewController:@"viewItem" fromStoryboard:@"Main"];
+        vc.selectedItem = self.currentItem;
+    } else {
+        FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+        loginButton.frame = self.fbButtonWrapper.frame;//CGRectMake(0,0,0,0);//   .size.height = self.fbButtonWrapper.frame.size.height;
+        
+        loginButton.center = self.fbButtonWrapper.center;
+        [self.fbButtonWrapper addSubview:loginButton];
+        
+        self.fbLoginWrapper.hidden = NO;
+        
+        self.itemActionWrapper.hidden = YES;
+    }
 }
-- (IBAction)onProfileSelected:(id)sender {
-    [self navigateToViewController:@"LoginViewController" fromStoryboard:@"Main"];
-}
+
 
 @end

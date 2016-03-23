@@ -15,7 +15,6 @@
 		D6FAB2F91C70369F007311AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F81C70369F007311AD /* ViewController.m */; };
 		D6FAB2FC1C70369F007311AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FAB2FA1C70369F007311AD /* Main.storyboard */; };
 		D6FAB2FE1C70369F007311AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FAB2FD1C70369F007311AD /* Assets.xcassets */; };
-		D6FAB3011C70369F007311AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FAB2FF1C70369F007311AD /* LaunchScreen.storyboard */; };
 		D6FAB30C1C70369F007311AD /* GyveProtoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB30B1C70369F007311AD /* GyveProtoTests.m */; };
 		D6FAB32A1C712ECF007311AD /* UIView+UIViewExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB3291C712ECF007311AD /* UIView+UIViewExtensions.m */; };
 		D6FAB32D1C7156A8007311AD /* ImageSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB32C1C7156A8007311AD /* ImageSelectorViewController.m */; };
@@ -23,12 +22,13 @@
 		D6FAB3331C716E46007311AD /* UploadEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB3321C716E46007311AD /* UploadEditViewController.m */; };
 		D6FAB3381C717E54007311AD /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB3371C717E54007311AD /* ItemModel.m */; };
 		D6FAB33E1C71ACCD007311AD /* ViewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */; };
+		D7C3A1311CA0AFDC005E808B /* FooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C3A1301CA0AFDC005E808B /* FooterViewController.m */; };
 		D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */; };
 		D7EA87AC1C9B3FC700881A1C /* BorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87AB1C9B3FC700881A1C /* BorderView.m */; };
 		D7EA87B01C9C8EC100881A1C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA87AD1C9C8EC100881A1C /* FBSDKCoreKit.framework */; };
 		D7EA87B11C9C8EC100881A1C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA87AE1C9C8EC100881A1C /* FBSDKLoginKit.framework */; };
 		D7EA87B21C9C8EC100881A1C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA87AF1C9C8EC100881A1C /* FBSDKShareKit.framework */; };
-		D7EA87B61C9C912400881A1C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87B51C9C912400881A1C /* LoginViewController.m */; };
+		D7EA87B81C9CC46500881A1C /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA87B71C9CC46500881A1C /* FBSDKMessengerShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 		D6FAB2F81C70369F007311AD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D6FAB2FB1C70369F007311AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6FAB2FD1C70369F007311AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D6FAB3001C70369F007311AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6FAB3021C70369F007311AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6FAB3071C70369F007311AD /* GyveProtoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GyveProtoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FAB30B1C70369F007311AD /* GyveProtoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GyveProtoTests.m; sourceTree = "<group>"; };
@@ -81,6 +80,8 @@
 		D6FAB3371C717E54007311AD /* ItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemModel.m; sourceTree = "<group>"; };
 		D6FAB33C1C71ACCD007311AD /* ViewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewItemViewController.h; sourceTree = "<group>"; };
 		D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewItemViewController.m; sourceTree = "<group>"; };
+		D7C3A12F1CA0AFDC005E808B /* FooterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterViewController.h; sourceTree = "<group>"; };
+		D7C3A1301CA0AFDC005E808B /* FooterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterViewController.m; sourceTree = "<group>"; };
 		D7EA87A61C9B19C900881A1C /* RoundedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderButton.h; sourceTree = "<group>"; };
 		D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderButton.m; sourceTree = "<group>"; };
 		D7EA87AA1C9B3FC700881A1C /* BorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderView.h; sourceTree = "<group>"; };
@@ -88,8 +89,7 @@
 		D7EA87AD1C9C8EC100881A1C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-20160316/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		D7EA87AE1C9C8EC100881A1C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-20160316/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		D7EA87AF1C9C8EC100881A1C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "FacebookSDKs-iOS-20160316/FBSDKShareKit.framework"; sourceTree = "<group>"; };
-		D7EA87B41C9C912400881A1C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		D7EA87B51C9C912400881A1C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D7EA87B71C9CC46500881A1C /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = "FacebookSDKs-iOS-20160316/FBSDKMessengerShareKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7EA87B81C9CC46500881A1C /* FBSDKMessengerShareKit.framework in Frameworks */,
 				D7EA87B11C9C8EC100881A1C /* FBSDKLoginKit.framework in Frameworks */,
 				D7EA87B01C9C8EC100881A1C /* FBSDKCoreKit.framework in Frameworks */,
 				D7EA87B21C9C8EC100881A1C /* FBSDKShareKit.framework in Frameworks */,
@@ -159,7 +160,6 @@
 				D6FAB2F41C70369F007311AD /* AppDelegate.h */,
 				D6FAB2F51C70369F007311AD /* AppDelegate.m */,
 				D6FAB2FD1C70369F007311AD /* Assets.xcassets */,
-				D6FAB2FF1C70369F007311AD /* LaunchScreen.storyboard */,
 				D6FAB3021C70369F007311AD /* Info.plist */,
 				D6FAB2F11C70369F007311AD /* Supporting Files */,
 			);
@@ -207,8 +207,8 @@
 				D6FAB3321C716E46007311AD /* UploadEditViewController.m */,
 				D6FAB33C1C71ACCD007311AD /* ViewItemViewController.h */,
 				D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */,
-				D7EA87B41C9C912400881A1C /* LoginViewController.h */,
-				D7EA87B51C9C912400881A1C /* LoginViewController.m */,
+				D7C3A12F1CA0AFDC005E808B /* FooterViewController.h */,
+				D7C3A1301CA0AFDC005E808B /* FooterViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -240,6 +240,7 @@
 		D7EA87B31C9C8ED900881A1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7EA87B71C9CC46500881A1C /* FBSDKMessengerShareKit.framework */,
 				D7EA87AD1C9C8EC100881A1C /* FBSDKCoreKit.framework */,
 				D7EA87AE1C9C8EC100881A1C /* FBSDKLoginKit.framework */,
 				D7EA87AF1C9C8EC100881A1C /* FBSDKShareKit.framework */,
@@ -314,6 +315,7 @@
 				TargetAttributes = {
 					D6FAB2ED1C70369E007311AD = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = E3AKM64AVC;
 					};
 					D6FAB3061C70369F007311AD = {
 						CreatedOnToolsVersion = 7.3;
@@ -350,7 +352,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6FAB3011C70369F007311AD /* LaunchScreen.storyboard in Resources */,
 				D6FAB2FE1C70369F007311AD /* Assets.xcassets in Resources */,
 				D6FAB2FC1C70369F007311AD /* Main.storyboard in Resources */,
 			);
@@ -385,9 +386,9 @@
 				D6FAB32D1C7156A8007311AD /* ImageSelectorViewController.m in Sources */,
 				D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */,
 				D6FAB33E1C71ACCD007311AD /* ViewItemViewController.m in Sources */,
+				D7C3A1311CA0AFDC005E808B /* FooterViewController.m in Sources */,
 				D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */,
 				D6FAB2F31C70369F007311AD /* main.m in Sources */,
-				D7EA87B61C9C912400881A1C /* LoginViewController.m in Sources */,
 				D6FAB3331C716E46007311AD /* UploadEditViewController.m in Sources */,
 				D6FAB3381C717E54007311AD /* ItemModel.m in Sources */,
 				D6FAB3301C71693B007311AD /* UIViewController+UIViewControllerExtensions.m in Sources */,
@@ -432,14 +433,6 @@
 				D6FAB2FB1C70369F007311AD /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D6FAB2FF1C70369F007311AD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D6FAB3001C70369F007311AD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -531,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDKs-iOS-20160316",
@@ -547,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDKs-iOS-20160316",
