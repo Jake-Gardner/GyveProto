@@ -8,7 +8,6 @@
 @import CoreLocation;
 
 @interface ViewController ()<CLLocationManagerDelegate>
-@property (weak, nonatomic) IBOutlet UIView *bottomOverlay;
 @property (weak, nonatomic) IBOutlet UIButton *junkButton;
 @property (weak, nonatomic) IBOutlet UIButton *passButton;
 @property (weak, nonatomic) IBOutlet UIButton *wantButton;

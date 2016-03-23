@@ -7,6 +7,7 @@
 //
 
 #import "FooterViewController.h"
+#import "UploadEditViewController.h"
 #import "UIViewController+UIViewControllerExtensions.h"
 
 @interface FooterViewController()
@@ -16,11 +17,15 @@
 @implementation FooterViewController
 
 - (IBAction)onProfileSelected:(id)sender {
-    //[self navigateToViewController:@"LoginViewController" fromStoryboard:@"Main"];
+    //todo go to profile
 }
 
 -(IBAction)onSelectCamera:(id)sender {
-    [self navigateToViewController:@"imageSelector" fromStoryboard:@"Main"];
+    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main"
+                                                  bundle:nil];
+    UIViewController* vc = [sb instantiateViewControllerWithIdentifier:@"imageSelector"];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -8,12 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ItemModel.h"
-#import <FBSDKMessengerShareKit/FBSDKMessengerShareKit.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <FBSDKShareKit/FBSDKShareKit.h>
 
-@interface ViewItemViewController : UIViewController<FBSDKSharingDelegate>
+@interface ViewItemViewController : UIViewController
 
 @property (nonatomic) ItemModel* selectedItem;
 
