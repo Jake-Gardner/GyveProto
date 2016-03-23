@@ -31,6 +31,7 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    self.fbLoginWrapper.hidden = YES;
 
     [self startStandardUpdates];
 }

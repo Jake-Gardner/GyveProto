@@ -62,7 +62,7 @@
     border.backgroundColor = self.topColor.CGColor;
     border.frame = CGRectMake(0, 0, self.frame.size.width, self.topWidth);
     [self.layer addSublayer:border];
-    self.bottomLayer = border;
+    self.topLayer = border;
 }
 
 -(void) rightBorderSetup {
