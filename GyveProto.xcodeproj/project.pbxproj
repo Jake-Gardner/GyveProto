@@ -24,6 +24,8 @@
 		D6FAB33E1C71ACCD007311AD /* ViewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB33D1C71ACCD007311AD /* ViewItemViewController.m */; };
 		D71C8FCB1CA317D0008B1B4C /* ProfileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D71C8FCA1CA317D0008B1B4C /* ProfileInfo.m */; };
 		D71C8FD21CA31C44008B1B4C /* RoundedBorderImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D71C8FD11CA31C44008B1B4C /* RoundedBorderImage.m */; };
+		D71C8FD51CA3211F008B1B4C /* HeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D71C8FD41CA3211F008B1B4C /* HeaderViewController.m */; };
+		D71C8FD81CA326B9008B1B4C /* GiveGetList.m in Sources */ = {isa = PBXBuildFile; fileRef = D71C8FD71CA326B9008B1B4C /* GiveGetList.m */; };
 		D7C3A1311CA0AFDC005E808B /* FooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C3A1301CA0AFDC005E808B /* FooterViewController.m */; };
 		D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */; };
 		D7EA87AC1C9B3FC700881A1C /* BorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87AB1C9B3FC700881A1C /* BorderView.m */; };
@@ -86,6 +88,10 @@
 		D71C8FCA1CA317D0008B1B4C /* ProfileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileInfo.m; sourceTree = "<group>"; };
 		D71C8FD01CA31C44008B1B4C /* RoundedBorderImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderImage.h; sourceTree = "<group>"; };
 		D71C8FD11CA31C44008B1B4C /* RoundedBorderImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderImage.m; sourceTree = "<group>"; };
+		D71C8FD31CA3211F008B1B4C /* HeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderViewController.h; sourceTree = "<group>"; };
+		D71C8FD41CA3211F008B1B4C /* HeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderViewController.m; sourceTree = "<group>"; };
+		D71C8FD61CA326B9008B1B4C /* GiveGetList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiveGetList.h; sourceTree = "<group>"; };
+		D71C8FD71CA326B9008B1B4C /* GiveGetList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiveGetList.m; sourceTree = "<group>"; };
 		D7C3A12F1CA0AFDC005E808B /* FooterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterViewController.h; sourceTree = "<group>"; };
 		D7C3A1301CA0AFDC005E808B /* FooterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterViewController.m; sourceTree = "<group>"; };
 		D7EA87A61C9B19C900881A1C /* RoundedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderButton.h; sourceTree = "<group>"; };
@@ -217,6 +223,10 @@
 				D7C3A1301CA0AFDC005E808B /* FooterViewController.m */,
 				D71C8FC91CA317D0008B1B4C /* ProfileInfo.h */,
 				D71C8FCA1CA317D0008B1B4C /* ProfileInfo.m */,
+				D71C8FD31CA3211F008B1B4C /* HeaderViewController.h */,
+				D71C8FD41CA3211F008B1B4C /* HeaderViewController.m */,
+				D71C8FD61CA326B9008B1B4C /* GiveGetList.h */,
+				D71C8FD71CA326B9008B1B4C /* GiveGetList.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -398,9 +408,11 @@
 				D6FAB32D1C7156A8007311AD /* ImageSelectorViewController.m in Sources */,
 				D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */,
 				D6FAB33E1C71ACCD007311AD /* ViewItemViewController.m in Sources */,
+				D71C8FD81CA326B9008B1B4C /* GiveGetList.m in Sources */,
 				D7C3A1311CA0AFDC005E808B /* FooterViewController.m in Sources */,
 				D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */,
 				D6FAB2F31C70369F007311AD /* main.m in Sources */,
+				D71C8FD51CA3211F008B1B4C /* HeaderViewController.m in Sources */,
 				D6FAB3331C716E46007311AD /* UploadEditViewController.m in Sources */,
 				D6FAB3381C717E54007311AD /* ItemModel.m in Sources */,
 				D6FAB3301C71693B007311AD /* UIViewController+UIViewControllerExtensions.m in Sources */,
