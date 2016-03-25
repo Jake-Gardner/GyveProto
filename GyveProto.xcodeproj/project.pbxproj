@@ -63,6 +63,7 @@
 		D75C3A731CA4C054009ADE3B /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = D75C3A5F1CA4C054009ADE3B /* README.txt */; };
 		D7C3A1311CA0AFDC005E808B /* FooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C3A1301CA0AFDC005E808B /* FooterViewController.m */; };
 		D7E784481CA4E08D009EE5D2 /* ItemSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E784471CA4E08D009EE5D2 /* ItemSelectorViewController.m */; };
+		D7E7844B1CA4F9A0009EE5D2 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E7844A1CA4F9A0009EE5D2 /* ProfileViewController.m */; };
 		D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */; };
 		D7EA87AC1C9B3FC700881A1C /* BorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87AB1C9B3FC700881A1C /* BorderView.m */; };
 		D7EA87B01C9C8EC100881A1C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA87AD1C9C8EC100881A1C /* FBSDKCoreKit.framework */; };
@@ -168,6 +169,8 @@
 		D7C3A1301CA0AFDC005E808B /* FooterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterViewController.m; sourceTree = "<group>"; };
 		D7E784461CA4E08D009EE5D2 /* ItemSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSelectorViewController.h; sourceTree = "<group>"; };
 		D7E784471CA4E08D009EE5D2 /* ItemSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemSelectorViewController.m; sourceTree = "<group>"; };
+		D7E784491CA4F9A0009EE5D2 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		D7E7844A1CA4F9A0009EE5D2 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		D7EA87A61C9B19C900881A1C /* RoundedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderButton.h; sourceTree = "<group>"; };
 		D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderButton.m; sourceTree = "<group>"; };
 		D7EA87AA1C9B3FC700881A1C /* BorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderView.h; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 				D71C8FD71CA326B9008B1B4C /* GiveGetList.m */,
 				D7E784461CA4E08D009EE5D2 /* ItemSelectorViewController.h */,
 				D7E784471CA4E08D009EE5D2 /* ItemSelectorViewController.m */,
+				D7E784491CA4F9A0009EE5D2 /* ProfileViewController.h */,
+				D7E7844A1CA4F9A0009EE5D2 /* ProfileViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				D71C8FD21CA31C44008B1B4C /* RoundedBorderImage.m in Sources */,
 				D6FAB32A1C712ECF007311AD /* UIView+UIViewExtensions.m in Sources */,
 				D71C8FCB1CA317D0008B1B4C /* ProfileInfo.m in Sources */,
+				D7E7844B1CA4F9A0009EE5D2 /* ProfileViewController.m in Sources */,
 				D6FAB32D1C7156A8007311AD /* ImageSelectorViewController.m in Sources */,
 				D7E784481CA4E08D009EE5D2 /* ItemSelectorViewController.m in Sources */,
 				D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */,

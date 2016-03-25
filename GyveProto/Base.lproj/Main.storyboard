@@ -92,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewO-pq-99A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="447" y="-405"/>
+            <point key="canvasLocation" x="1401" y="1513"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -139,7 +139,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bef-Qt-Ts0" userLabel="nav controller container">
                                         <rect key="frame" x="0.0" y="50" width="414" height="646"/>
                                         <connections>
-                                            <segue destination="mcQ-xm-yxK" kind="embed" id="8T2-Q7-69H"/>
+                                            <segue destination="mcQ-xm-yxK" kind="embed" identifier="HomeNavController" id="8T2-Q7-69H"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3f8-Dk-Ji7" userLabel="footer container">
@@ -149,7 +149,7 @@
                                             <constraint firstAttribute="height" constant="55" id="1Ui-fe-Xwy"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="e5z-pO-6cQ" kind="embed" id="4Rp-rD-ilF"/>
+                                            <segue destination="e5z-pO-6cQ" kind="embed" identifier="FooterViewController" id="4Rp-rD-ilF"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
@@ -179,6 +179,9 @@
                     <navigationItem key="navigationItem" id="4Zr-pA-ucA"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="navControllerContainer" destination="Bef-Qt-Ts0" id="wlu-X1-RRJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -258,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkG-PZ-1ul" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="920" y="1426"/>
+            <point key="canvasLocation" x="998" y="1402"/>
         </scene>
         <!--Footer View Controller-->
         <scene sceneID="NJy-zY-tYW">
@@ -297,6 +300,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
                                                 <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                                                 <state key="normal" title="hm" image="home_blue.png"/>
+                                                <connections>
+                                                    <action selector="homeSelected:" destination="e5z-pO-6cQ" eventType="touchUpInside" id="Kma-ss-eYb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -393,6 +399,10 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="55"/>
+                    <connections>
+                        <outlet property="homeButton" destination="Jat-tr-oxc" id="F4M-HT-XyI"/>
+                        <outlet property="profileButton" destination="wvt-N4-gfQ" id="woh-9v-gqO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2L-5Y-t0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -796,7 +806,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VdI-2G-ABO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="528.5" y="1477"/>
+            <point key="canvasLocation" x="566.5" y="1402"/>
         </scene>
         <!--Image Selector View Controller-->
         <scene sceneID="vjN-OY-NVC">
@@ -922,13 +932,53 @@
             <point key="canvasLocation" x="2072" y="349"/>
         </scene>
         <!--Navigation Controller-->
+        <scene sceneID="hvH-MN-7Qo">
+            <objects>
+                <navigationController storyboardIdentifier="ProfileNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="ifj-v8-ULN" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="646"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ppm-zz-6R3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GCo-Fu-DSY" kind="relationship" relationship="rootViewController" id="Pam-gK-3AK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wFW-re-Nci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="19" y="2107"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="wKf-OB-ANz">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GCo-Fu-DSY" customClass="ProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sbp-7r-GEZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="kJw-bm-Xfy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WHT-9t-rcT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="646"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="j7T-Ew-jV8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Et0-J0-vBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="641" y="2127"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="5ts-LS-FMK">
             <objects>
-                <navigationController navigationBarHidden="YES" id="mcQ-xm-yxK" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="mcQ-xm-yxK" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="oW1-2S-oiV"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="646"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Vt-V1-Gf9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -979,7 +1029,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rsZ-jv-oC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1203" y="-528"/>
+            <point key="canvasLocation" x="549" y="-462"/>
         </scene>
         <!--Header View Controller-->
         <scene sceneID="r9r-1z-Q1C">
