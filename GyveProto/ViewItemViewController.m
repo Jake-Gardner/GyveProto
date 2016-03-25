@@ -24,5 +24,8 @@
     self.itemTitle.text = self.selectedItem.title;
 }
      
+- (IBAction)backPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
      
 @end

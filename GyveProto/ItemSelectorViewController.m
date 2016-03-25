@@ -9,7 +9,7 @@
 
 @import CoreLocation;
 
-@interface ItemSelectorViewController ()<CLLocationManagerDelegate>
+@interface ItemSelectorViewController ()<CLLocationManagerDelegate, FBSDKLoginButtonDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *noItemsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
@@ -18,8 +18,6 @@
 @property (strong, nonatomic) IBOutlet UIView *itemActionWrapper;
 @property (strong, nonatomic) IBOutlet UIView *fbLoginWrapper;
 @property (strong, nonatomic) IBOutlet UIView *fbButtonWrapper;
-
-
 
 @property (nonatomic) BOOL loggedIn;
 @property (nonatomic) ItemModel* currentItem;
@@ -30,18 +28,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setupFBLogin];
+    //todo login button for intial give
+}
+
+- (void) setupFBLogin {
     self.fbLoginWrapper.hidden = YES;
     
-    [self startStandardUpdates];
-}
-
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] initWithFrame:CGRectMake(0,0, self.fbButtonWrapper.frame.size.width, self.fbButtonWrapper.frame.size.height)];
     
-    //breaking app
-    //[self refreshItemView];
+    loginButton.readPermissions = @[@"email"];
+    [self.fbButtonWrapper addSubview:loginButton];
+    loginButton.delegate = self;
+    [self startStandardUpdates];
+    self.loggedIn = [FBSDKAccessToken currentAccessToken];
 }
-
 
 - (void)startStandardUpdates {
     // Create the location manager if this object does not
@@ -120,19 +122,42 @@
 
 - (IBAction)onSelectWant:(id)sender {
     if (self.loggedIn) {
-        ViewItemViewController* vc = (ViewItemViewController*)[self navigateToViewController:@"viewItem" fromStoryboard:@"Main"];
-        vc.selectedItem = self.currentItem;
+        [self goToViewItemVC];
     } else {
-        FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-        loginButton.frame = self.fbButtonWrapper.frame;//CGRectMake(0,0,0,0);//   .size.height = self.fbButtonWrapper.frame.size.height;
-        
-        loginButton.center = self.fbButtonWrapper.center;
-        [self.fbButtonWrapper addSubview:loginButton];
-        
         self.fbLoginWrapper.hidden = NO;
-        
         self.itemActionWrapper.hidden = YES;
     }
+}
+
+-(void) goToViewItemVC {
+    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main"
+                                                  bundle:nil];
+    ViewItemViewController* vc = [sb instantiateViewControllerWithIdentifier:@"viewItem"];
+    
+    vc.selectedItem = self.currentItem;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+# pragma mark - FBSDKLoginButtonDelegate
+- (void) loginButton: (FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error: (NSError *)error {
+    if ([result.grantedPermissions containsObject:@"email"]) {
+        self.loggedIn = YES;
+        self.fbLoginWrapper.hidden = YES;
+        
+        self.itemActionWrapper.hidden = NO;
+        
+        [self goToViewItemVC];
+    }
+    //todo deny permissions
+}
+
+- (void) loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
+    
+}
+
+- (BOOL) loginButtonWillLogin:(FBSDKLoginButton *)loginButton {
+    return YES;
 }
 
 @end

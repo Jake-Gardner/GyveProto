@@ -72,6 +72,13 @@
                                     <action selector="messageUser:" destination="gbq-h4-93k" eventType="touchUpInside" id="PnX-zz-65Y"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7K-rC-eLZ">
+                                <rect key="frame" x="43" y="20" width="46" height="30"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="gbq-h4-93k" eventType="touchUpInside" id="LX1-Vj-Pen"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -92,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewO-pq-99A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1401" y="1513"/>
+            <point key="canvasLocation" x="1405" y="1628"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -720,7 +727,6 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNh-bm-rQg" userLabel="fb button wrapper">
                                                         <rect key="frame" x="58" y="25" width="300" height="50"/>
-                                                        <color key="backgroundColor" red="0.75832477659999997" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="300" id="EEx-3t-36g"/>
                                                             <constraint firstAttribute="height" constant="50" id="myL-Cm-cLv"/>
@@ -870,7 +876,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Md-yM-MW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284" y="358"/>
+            <point key="canvasLocation" x="1281" y="787"/>
         </scene>
         <!--Upload Edit View Controller-->
         <scene sceneID="cgt-6O-Xv4">
