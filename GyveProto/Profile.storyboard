@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="ZEK-Wd-UEU">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KdU-AF-u85" customClass="ProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JhK-5T-rN0"/>
+                        <viewControllerLayoutGuide type="bottom" id="a2x-ml-NIr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5LN-9z-Wjo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="646"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qzY-5u-zux"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Onf-Zq-qJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="641" y="2127"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kog-EW-SsP">
+            <objects>
+                <navigationController storyboardIdentifier="ProfileNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="XnQ-uo-Z80" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="646"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pk3-1y-sq7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KdU-AF-u85" kind="relationship" relationship="rootViewController" id="Esa-RP-IU7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2LV-CS-MF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="2150"/>
+        </scene>
+    </scenes>
+</document>

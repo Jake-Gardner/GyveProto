@@ -943,44 +943,6 @@
             <point key="canvasLocation" x="2072" y="349"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="hvH-MN-7Qo">
-            <objects>
-                <navigationController storyboardIdentifier="ProfileNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="ifj-v8-ULN" sceneMemberID="viewController">
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="414" height="646"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ppm-zz-6R3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="GCo-Fu-DSY" kind="relationship" relationship="rootViewController" id="Pam-gK-3AK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wFW-re-Nci" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="19" y="2107"/>
-        </scene>
-        <!--Profile View Controller-->
-        <scene sceneID="wKf-OB-ANz">
-            <objects>
-                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GCo-Fu-DSY" customClass="ProfileViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Sbp-7r-GEZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="kJw-bm-Xfy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WHT-9t-rcT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="646"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="j7T-Ew-jV8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Et0-J0-vBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="641" y="2127"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="5ts-LS-FMK">
             <objects>
                 <navigationController storyboardIdentifier="HomeNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="mcQ-xm-yxK" sceneMemberID="viewController">

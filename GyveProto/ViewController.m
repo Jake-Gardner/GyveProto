@@ -41,7 +41,8 @@
         
          [self.subNavController.view removeFromSuperview];
 
-        UINavigationController *navCon = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileNavController"];
+        UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
+        UINavigationController *navCon = [sb instantiateViewControllerWithIdentifier:@"ProfileNavController"];
 
         [self addChildViewController:navCon];
         
