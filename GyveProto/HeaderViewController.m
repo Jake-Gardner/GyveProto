@@ -12,8 +12,7 @@
 
 - (IBAction)giveGetButtonPressed:(id)sender {
     
-    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main"
-                                                  bundle:nil];
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"GiveGetList" bundle:nil];
     UIViewController* vc = [sb instantiateViewControllerWithIdentifier:@"GiveGetList"];
     
     [self.navigationController pushViewController:vc animated:YES];

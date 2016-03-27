@@ -65,6 +65,7 @@
 		D7E784481CA4E08D009EE5D2 /* ItemSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E784471CA4E08D009EE5D2 /* ItemSelectorViewController.m */; };
 		D7E7844B1CA4F9A0009EE5D2 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E7844A1CA4F9A0009EE5D2 /* ProfileViewController.m */; };
 		D7E7844F1CA7A929009EE5D2 /* GiveListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E7844E1CA7A929009EE5D2 /* GiveListViewController.m */; };
+		D7E784511CA7ACBE009EE5D2 /* GiveGetList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E784501CA7ACBE009EE5D2 /* GiveGetList.storyboard */; };
 		D7EA87A81C9B19C900881A1C /* RoundedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */; };
 		D7EA87AC1C9B3FC700881A1C /* BorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA87AB1C9B3FC700881A1C /* BorderView.m */; };
 		D7EA87B01C9C8EC100881A1C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA87AD1C9C8EC100881A1C /* FBSDKCoreKit.framework */; };
@@ -174,6 +175,7 @@
 		D7E7844A1CA4F9A0009EE5D2 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		D7E7844D1CA7A929009EE5D2 /* GiveListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiveListViewController.h; sourceTree = "<group>"; };
 		D7E7844E1CA7A929009EE5D2 /* GiveListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiveListViewController.m; sourceTree = "<group>"; };
+		D7E784501CA7ACBE009EE5D2 /* GiveGetList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GiveGetList.storyboard; sourceTree = "<group>"; };
 		D7EA87A61C9B19C900881A1C /* RoundedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderButton.h; sourceTree = "<group>"; };
 		D7EA87A71C9B19C900881A1C /* RoundedBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderButton.m; sourceTree = "<group>"; };
 		D7EA87AA1C9B3FC700881A1C /* BorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderView.h; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				D7EA87A51C9B133800881A1C /* ib designables */,
+				D7E784521CA7ACC8009EE5D2 /* GiveGetLists */,
 				D6FAB2FA1C70369F007311AD /* Main.storyboard */,
 				D6FAB2F71C70369F007311AD /* ViewController.h */,
 				D6FAB2F81C70369F007311AD /* ViewController.m */,
@@ -307,14 +310,10 @@
 				D71C8FCA1CA317D0008B1B4C /* ProfileInfo.m */,
 				D71C8FD31CA3211F008B1B4C /* HeaderViewController.h */,
 				D71C8FD41CA3211F008B1B4C /* HeaderViewController.m */,
-				D71C8FD61CA326B9008B1B4C /* GiveGetList.h */,
-				D71C8FD71CA326B9008B1B4C /* GiveGetList.m */,
 				D7E784461CA4E08D009EE5D2 /* ItemSelectorViewController.h */,
 				D7E784471CA4E08D009EE5D2 /* ItemSelectorViewController.m */,
 				D7E784491CA4F9A0009EE5D2 /* ProfileViewController.h */,
 				D7E7844A1CA4F9A0009EE5D2 /* ProfileViewController.m */,
-				D7E7844D1CA7A929009EE5D2 /* GiveListViewController.h */,
-				D7E7844E1CA7A929009EE5D2 /* GiveListViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -386,6 +385,18 @@
 				D75C3A5F1CA4C054009ADE3B /* README.txt */,
 			);
 			path = Lato2OFL;
+			sourceTree = "<group>";
+		};
+		D7E784521CA7ACC8009EE5D2 /* GiveGetLists */ = {
+			isa = PBXGroup;
+			children = (
+				D71C8FD61CA326B9008B1B4C /* GiveGetList.h */,
+				D71C8FD71CA326B9008B1B4C /* GiveGetList.m */,
+				D7E7844D1CA7A929009EE5D2 /* GiveListViewController.h */,
+				D7E7844E1CA7A929009EE5D2 /* GiveListViewController.m */,
+				D7E784501CA7ACBE009EE5D2 /* GiveGetList.storyboard */,
+			);
+			name = GiveGetLists;
 			sourceTree = "<group>";
 		};
 		D7EA87A51C9B133800881A1C /* ib designables */ = {
@@ -545,6 +556,7 @@
 				D75C3A6F1CA4C054009ADE3B /* Lato-SemiboldItalic.ttf in Resources */,
 				D71C8FF11CA35712008B1B4C /* home_grey.png in Resources */,
 				D75C3A671CA4C054009ADE3B /* Lato-HeavyItalic.ttf in Resources */,
+				D7E784511CA7ACBE009EE5D2 /* GiveGetList.storyboard in Resources */,
 				D71C8FEE1CA35712008B1B4C /* gallery.png in Resources */,
 				D75C3A661CA4C054009ADE3B /* Lato-Heavy.ttf in Resources */,
 				D75C3A611CA4C054009ADE3B /* Lato-BlackItalic.ttf in Resources */,
