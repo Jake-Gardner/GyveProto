@@ -1,6 +1,5 @@
-
-
 #import "GiveListViewController.h"
+#import "GiveListTableViewCell.h"
 
 @interface GiveListViewController ()
 
@@ -8,22 +7,14 @@
 
 @implementation GiveListViewController 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    GiveListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GiveListTableViewCell"];
+    
+    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 1;
 }
 
 @end

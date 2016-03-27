@@ -11,5 +11,6 @@ IB_DESIGNABLE
 @interface RoundedBorderButton : UIButton
 @property (nonatomic) IBInspectable NSInteger borderWidth;
 @property (nonatomic) IBInspectable UIColor *borderColor;
+@property (nonatomic) IBInspectable int radius;
 
 @end

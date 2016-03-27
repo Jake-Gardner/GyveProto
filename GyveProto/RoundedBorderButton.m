@@ -29,7 +29,11 @@
 
 -(void) setup {
     if (self) {
-        self.layer.cornerRadius = self.layer.frame.size.height/2;
+        if (!self.radius) {
+            self.layer.cornerRadius = self.layer.frame.size.height/2;
+        } else {
+            self.layer.cornerRadius = self.radius;
+        }
         
         if (self.borderColor && self.borderWidth) {
             self.layer.borderColor = self.borderColor.CGColor;
