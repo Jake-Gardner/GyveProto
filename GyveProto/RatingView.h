@@ -10,6 +10,6 @@
 IB_DESIGNABLE
 @interface RatingView : UIView
 
-@property (nonatomic) double rating;
+@property (nonatomic) IBInspectable double rating;
 
 @end
