@@ -22,10 +22,14 @@
 }
 
 -(void)refreshThingList:(void(^)())callback {
-    [NetworkRequest makeGetRequest:@"http://localhost:3000/thingIds" completion:^(NSError* err, NSData* data) {
+    [NetworkRequest makeGetRequest:@"http://localhost:3000/things" completion:^(NSError* err, NSData* data) {
         if (data) {
             NSDictionary* res = [JSONParser parseDictionary:data];
-            self.ids = [NSMutableArray arrayWithArray:res[@"ids"]];
+            self.ids = [NSMutableArray new];
+            for (NSDictionary* thing in res[@"things"]) {
+                // TODO: get other data from json here
+                [self.ids addObject:thing[@"image"]];
+            }
         }
 
         callback();
@@ -78,7 +82,11 @@
                               @"Content-Length": postLength
                               };
 
-    [NetworkRequest makePostRequest:@"http://localhost:3000/image" headers:headers body:body completion:^(NSError* err, NSData* data) {
+    NSDictionary* params = @{
+                             @"user": @"USER_ID",
+                             @"title": item.title
+                             };
+    [NetworkRequest makePostRequest:@"http://localhost:3000/thing" headers:headers body:body queryParams:params completion:^(NSError* err, NSData* data) {
     }];
 }
 
