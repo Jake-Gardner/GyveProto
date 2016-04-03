@@ -16,6 +16,36 @@ module.exports = function (app) {
 		});
 	});
 
+	app.get("/admin/chat/:userId", function (req, res) {
+		var promises = [User.findOne({
+			fbId: req.params.userId
+		})];
+
+		if (req.query.with) {
+			if (req.params.userId === req.query.with) {
+				res.status(400).send("No chatting with yourself, jackass.");
+				return;
+			}
+
+			promises.push(User.findOne({
+				fbId: req.query.with
+			}));
+		}
+
+		Promise.all(promises).spread(function (user, otherUser) {
+			res.render("admin-chat", {
+				userId: user.fbId,
+				otherUserId: otherUser ? otherUser.fbId : null
+			});
+		}).catch(function (err) {
+			res.status(500).send(err);
+		});
+	});
+
+	app.get("/admin/chat", function (req, res) {
+		res.render("admin-chat");
+	});
+
 	app.get("/admin/removeUser/:id", function (req, res) {
 		User.findOne({
 			fbId: req.params.id

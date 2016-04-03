@@ -1,0 +1,14 @@
+html
+  head
+    title Admin Chat
+    script(src="/jquery-2.2.2.min.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="/chat.js")
+  body
+    if userId
+      h3#user #{userId}
+    if otherUserId
+      h4#otherUser with #{otherUserId}
+    input(type='text')#messageInput
+    button#submit Send
+    ul#messages
