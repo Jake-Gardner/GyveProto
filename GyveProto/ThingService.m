@@ -23,7 +23,9 @@
 
 -(void)refreshThingList:(void(^)())callback {
     [NetworkRequest makeGetRequest:@"things" completion:^(NSError* err, NSData* data) {
-        if (data) {
+        if (err) {
+            NSLog(@"Error making things get request: %@", err);
+        } else if (data) {
             NSDictionary* res = [JSONParser parseDictionary:data];
             self.ids = [NSMutableArray new];
             for (NSDictionary* thing in res[@"things"]) {
@@ -46,7 +48,10 @@
 
         [self.ids removeObject:next];
         [NetworkRequest makeGetRequest:[@"thing/" stringByAppendingString:next] completion:^(NSError* err, NSData* data) {
-            if (data) {
+            if (err) {
+                NSLog(@"Error making thing get request: %@", err);
+                callback(nil);
+            } else if (data) {
                 callback([[ItemModel alloc] initWithImage:[UIImage imageWithData:data] title:@""]);
             } else {
                 callback(nil);
@@ -87,6 +92,9 @@
                              @"title": item.title
                              };
     [NetworkRequest makePostRequest:@"thing" headers:headers body:body queryParams:params completion:^(NSError* err, NSData* data) {
+        if (err) {
+            NSLog(@"Error making thing save request: %@", err);
+        }
     }];
 }
 

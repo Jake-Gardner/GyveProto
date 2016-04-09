@@ -2,8 +2,8 @@
 
 var User = require("../models/User");
 
-module.exports = function (app) {
-	app.get("/user/:id", function (req, res) {
+module.exports = function (nonAuthRouter) {
+	nonAuthRouter.get("/user/:id", function (req, res) {
 		console.log("User info for user " + req.params.id + " requested");
 
 		User.findOne({

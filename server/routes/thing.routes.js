@@ -7,8 +7,8 @@ var Image = require("../models/Image");
 var User = require("../models/User");
 var Thing = require("../models/Thing");
 
-module.exports = function (app) {
-	app.post("/thing", multer().single("image"), function (req, res) {
+module.exports = function (nonAuthRouter, authRouter) {
+	authRouter.post("/thing", multer().single("image"), function (req, res) {
 		var title = (req.query.title || "").trim();
 		console.log("Received image " + title + " of size " + req.file.size);
 
@@ -32,7 +32,7 @@ module.exports = function (app) {
 		});
 	});
 
-	app.get("/things", function (req, res) {
+	authRouter.get("/things", function (req, res) {
 		console.log("Thing list requested");
 
 		Thing.find().then(function (things) {
@@ -44,7 +44,7 @@ module.exports = function (app) {
 		});
 	});
 
-	app.get("/thing/:id", function (req, res) {
+	authRouter.get("/thing/:id", function (req, res) {
 		console.log("Item of id " + req.params.id + " requested");
 
 		Image.findById(req.params.id).then(function (image) {

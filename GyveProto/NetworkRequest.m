@@ -36,11 +36,16 @@
             [req setValue:headers[key] forHTTPHeaderField:key];
         }
     }
+
+    [req setValue:@"USER_ID" forHTTPHeaderField:@"authenticate"];       //TODO: get this from a global FB auth object or something
     
     if ([type isEqualToString:@"GET"]) {
         NSURLSessionDataTask* task = [session dataTaskWithRequest:req completionHandler:^(NSData* data, NSURLResponse* res, NSError* err) {
-            if (err != nil || ((NSHTTPURLResponse*)res).statusCode >= 400) {
+            if (err != nil) {
                 completion(err, nil);
+            } else if (((NSHTTPURLResponse*)res).statusCode >= 400) {
+                NSError* httpErr = [NSError errorWithDomain:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] code:((NSHTTPURLResponse*)res).statusCode userInfo:nil];
+                completion(httpErr, nil);
             } else {
                 completion(nil, data);
             }
@@ -48,8 +53,11 @@
         [task resume];
     } else if ([type isEqualToString:@"POST"]) {
         NSURLSessionUploadTask* task = [session uploadTaskWithRequest:req fromData:body completionHandler:^(NSData* data, NSURLResponse* res, NSError* err) {
-            if (err != nil || ((NSHTTPURLResponse*)res).statusCode >= 400) {
+            if (err != nil) {
                 completion(err, nil);
+            } else if (((NSHTTPURLResponse*)res).statusCode >= 400) {
+                NSError* httpErr = [NSError errorWithDomain:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] code:((NSHTTPURLResponse*)res).statusCode userInfo:nil];
+                completion(httpErr, nil);
             } else {
                 completion(nil, data);
             }

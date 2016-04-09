@@ -31,6 +31,8 @@
     
     [self setupFBLogin];
     //todo login button for intial give
+
+    [self refreshItemView];
 }
 
 - (void) setupFBLogin {

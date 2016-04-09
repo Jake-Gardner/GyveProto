@@ -4,6 +4,7 @@ var mongoose = require("mongoose");
 var express = require("express");
 var bodyParser = require("body-parser");
 var config = require("./config");
+var User = require("./models/User");
 
 // Overwrite built-in promise implementation
 mongoose.Promise = require("bluebird");
@@ -20,9 +21,31 @@ app.set("view engine", "jade");
 app.set("views", __dirname + "/views");
 app.use(express.static(__dirname + "/public"));
 
-require("./routes/user.routes.js")(app);
-require("./routes/thing.routes.js")(app);
-require("./routes/admin.routes.js")(app);
+var authRouter = express.Router();
+authRouter.use(function (req, res, next) {
+	if (req.headers.authenticate) {
+		User.findOne({
+			fbId: req.headers.authenticate
+		}).then(function (user) {
+			if (user) {
+				next();
+			} else {
+				res.sendStatus(401);
+			}
+		});
+	} else {
+		res.sendStatus(401);
+	}
+});
+
+var nonAuthRouter = express.Router();
+
+app.use("/", nonAuthRouter);
+app.use("/", authRouter);
+
+require("./routes/user.routes.js")(nonAuthRouter, authRouter);
+require("./routes/thing.routes.js")(nonAuthRouter, authRouter);
+require("./routes/admin.routes.js")(nonAuthRouter, authRouter);
 
 http.listen(config.port, function () {
 	console.log("App listening at " + config.host + ":" + config.port);
