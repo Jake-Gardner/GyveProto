@@ -26,7 +26,9 @@
     }
 
     NSURLSession* session = [NSURLSession sharedSession];
-    NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]];
+    NSURL* baseUrl = [NSURL URLWithString:@"http://localhost:3000/"];       //TODO: config-drive this
+    NSURL* relativeUrl = [NSURL URLWithString:[fullUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] relativeToURL:baseUrl];
+    NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:relativeUrl];
     req.HTTPMethod = type;
 
     if (headers) {

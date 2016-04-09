@@ -11,10 +11,11 @@ html
           li Gets: #{user.getCount}
           li
             a(href='admin/removeUser/' + user.fbId) Delete
-    h2 Images
-    each image in images
+    h2 Things
+    each thing in things
       li
-        a(href='thing/' + image._id) #{image._id}
+        a(href='thing/' + thing.image) #{thing.title}
+        span &nbspcreated by #{thing.creator}
         ul
           li
-            a(href='admin/removeImage/' + image._id) Delete
+            a(href='admin/removeThing/' + thing._id) Delete

@@ -3,13 +3,14 @@
 var Promise = require("bluebird");
 var User = require("../models/User");
 var Image = require("../models/Image");
+var Thing = require("../models/Thing");
 
 module.exports = function (app) {
 	app.get("/admin", function (req, res) {
-		Promise.all([User.find(), Image.find()]).spread(function (users, images) {
+		Promise.all([User.find(), Thing.find()]).spread(function (users, things) {
 			res.render("admin", {
 				users: users || [],
-				images: images || []
+				things: things || []
 			});
 		}).catch(function (err) {
 			res.status(500).send(err);
@@ -58,9 +59,9 @@ module.exports = function (app) {
 		});
 	});
 
-	app.get("/admin/removeImage/:id", function (req, res) {
-		Image.findById(req.params.id).then(function (image) {
-			return image.remove();
+	app.get("/admin/removeThing/:id", function (req, res) {
+		Thing.findById(req.params.id).then(function (thing) {
+			return thing.remove();
 		}).then(function () {
 			res.redirect("/admin");
 		}).catch(function (err) {

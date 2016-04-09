@@ -22,7 +22,7 @@
 }
 
 -(void)refreshThingList:(void(^)())callback {
-    [NetworkRequest makeGetRequest:@"http://localhost:3000/things" completion:^(NSError* err, NSData* data) {
+    [NetworkRequest makeGetRequest:@"things" completion:^(NSError* err, NSData* data) {
         if (data) {
             NSDictionary* res = [JSONParser parseDictionary:data];
             self.ids = [NSMutableArray new];
@@ -45,7 +45,7 @@
         }
 
         [self.ids removeObject:next];
-        [NetworkRequest makeGetRequest:[@"http://localhost:3000/thing/" stringByAppendingString:next] completion:^(NSError* err, NSData* data) {
+        [NetworkRequest makeGetRequest:[@"thing/" stringByAppendingString:next] completion:^(NSError* err, NSData* data) {
             if (data) {
                 callback([[ItemModel alloc] initWithImage:[UIImage imageWithData:data] title:@""]);
             } else {
@@ -86,7 +86,7 @@
                              @"user": @"USER_ID",
                              @"title": item.title
                              };
-    [NetworkRequest makePostRequest:@"http://localhost:3000/thing" headers:headers body:body queryParams:params completion:^(NSError* err, NSData* data) {
+    [NetworkRequest makePostRequest:@"thing" headers:headers body:body queryParams:params completion:^(NSError* err, NSData* data) {
     }];
 }
 

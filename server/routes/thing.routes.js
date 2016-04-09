@@ -9,7 +9,8 @@ var Thing = require("../models/Thing");
 
 module.exports = function (app) {
 	app.post("/thing", multer().single("image"), function (req, res) {
-		console.log("Received image " + req.query.title + " of size " + req.file.size);
+		var title = (req.query.title || "").trim();
+		console.log("Received image " + title + " of size " + req.file.size);
 
 		var makeImage = Image.create({
 			data: req.file.buffer
@@ -22,7 +23,7 @@ module.exports = function (app) {
 			return Thing.create({
 				image: img._id,
 				creator: user._id,
-				title: req.query.title
+				title: title
 			});
 		}).then(function () {
 			res.sendStatus(200);
