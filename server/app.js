@@ -23,11 +23,12 @@ app.use(express.static(__dirname + "/public"));
 
 var authRouter = express.Router();
 authRouter.use(function (req, res, next) {
-	if (req.headers.authenticate) {
+	if (req.headers.authorization) {
 		User.findOne({
-			fbId: req.headers.authenticate
+			fbId: req.headers.authorization
 		}).then(function (user) {
 			if (user) {
+				req.user = user;
 				next();
 			} else {
 				res.sendStatus(401);

@@ -37,7 +37,7 @@
         }
     }
 
-    [req setValue:@"USER_ID" forHTTPHeaderField:@"authenticate"];       //TODO: get this from a global FB auth object or something
+    [req setValue:@"USER_ID" forHTTPHeaderField:@"authorization"];       //TODO: get this from a global FB auth object or something
     
     if ([type isEqualToString:@"GET"]) {
         NSURLSessionDataTask* task = [session dataTaskWithRequest:req completionHandler:^(NSData* data, NSURLResponse* res, NSError* err) {

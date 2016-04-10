@@ -4,7 +4,6 @@ var multer = require("multer");
 var _ = require("lodash/core");
 var Promise = require("bluebird");
 var Image = require("../models/Image");
-var User = require("../models/User");
 var Thing = require("../models/Thing");
 
 module.exports = function (nonAuthRouter, authRouter) {
@@ -12,17 +11,12 @@ module.exports = function (nonAuthRouter, authRouter) {
 		var title = (req.query.title || "").trim();
 		console.log("Received image " + title + " of size " + req.file.size);
 
-		var makeImage = Image.create({
+		Image.create({
 			data: req.file.buffer
-		});
-		var getUser = User.findOne({
-			fbId: req.query.user
-		});
-
-		Promise.all([makeImage, getUser]).spread(function (img, user) {
+		}).then(function (img) {
 			return Thing.create({
 				image: img._id,
-				creator: user._id,
+				creator: req.user._id,
 				title: title
 			});
 		}).then(function () {
