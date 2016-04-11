@@ -22,7 +22,11 @@
 }
 
 -(void)refreshThingList:(void(^)())callback {
-    [NetworkRequest makeGetRequest:@"things" completion:^(NSError* err, NSData* data) {
+    NSDictionary* params = @{
+                             @"longitude": @-122.42,
+                             @"latitude": @37.8
+                             };
+    [NetworkRequest makeGetRequest:@"things" queryParams:params completion:^(NSError* err, NSData* data) {
         if (err) {
             NSLog(@"Error making things get request: %@", err);
         } else if (data) {
@@ -66,8 +70,8 @@
     }
 }
 
--(void)saveThing:(ItemModel*)item {
-    NSData* imageData = UIImagePNGRepresentation(item.image);
+-(void)saveThing:(UIImage*)image title:(NSString*)title {
+    NSData* imageData = UIImagePNGRepresentation(image);
     NSString *boundaryConstant = @"----------V2ymHFg03ehbqgZCaKO6jy";
     NSString* filename = @"image file";
     NSString* fileParamConstant = @"image";
@@ -88,7 +92,9 @@
                               };
 
     NSDictionary* params = @{
-                             @"title": item.title
+                             @"title": title,
+                             @"longitude": @-122.41,
+                             @"latitude": @37.79
                              };
     [NetworkRequest makePostRequest:@"thing" headers:headers body:body queryParams:params completion:^(NSError* err, NSData* data) {
         if (err) {

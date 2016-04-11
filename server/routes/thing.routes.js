@@ -5,6 +5,7 @@ var _ = require("lodash/core");
 var Promise = require("bluebird");
 var Image = require("../models/Image");
 var Thing = require("../models/Thing");
+var config = require("../config");
 
 //TODO: move db queries into a different file
 
@@ -19,7 +20,8 @@ module.exports = function (nonAuthRouter, authRouter) {
 			return Thing.create({
 				image: img._id,
 				givenBy: req.user._id,
-				title: title
+				title: title,
+				location: [req.query.longitude, req.query.latitude]
 			});
 		}).then(function () {
 			res.sendStatus(200);
@@ -29,15 +31,21 @@ module.exports = function (nonAuthRouter, authRouter) {
 	});
 
 	authRouter.get("/things", function (req, res) {
-		console.log("Thing list requested");
+		var coordinates = [req.query.longitude, req.query.latitude];
+		var maxDist = config.maxDistanceKm / 6371 / Math.PI * 180;	//Convert km to degrees
+
+		console.log("Thing list requested at location: ", coordinates);
 
 		//TODO: maybe remove values that aren't needed by client?
 		Thing.find({
 			givenBy: {$ne: req.user._id},
 			gottenBy: {$not: {$elemMatch: {$eq: req.user._id}}},
 			passedBy: {$not: {$elemMatch: {$eq: req.user._id}}},
-			junkedBy: {$not: {$elemMatch: {$eq: req.user._id}}}
-		}).then(function (things) {
+			junkedBy: {$not: {$elemMatch: {$eq: req.user._id}}},
+			location: {$near: coordinates, $maxDistance: maxDist}
+		})
+		.limit(config.maxItemResults)
+		.then(function (things) {
 			res.json({
 				things: things
 			});

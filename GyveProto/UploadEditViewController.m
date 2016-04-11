@@ -17,8 +17,7 @@
 #pragma mark - Interface interactions
 
 - (IBAction)onPostSelected:(id)sender {
-    ItemModel* item = [[ItemModel alloc] initWithImage:self.image title:self.titleField.text];
-    [[ThingService sharedService] saveThing:item];
+    [[ThingService sharedService] saveThing:self.image title:self.titleField.text];
 
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

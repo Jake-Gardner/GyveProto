@@ -6,6 +6,10 @@
     [self makeNetworkRequest:url type:@"GET" headers:nil body:nil queryParams:nil completion:completion];
 }
 
++(void)makeGetRequest:(NSString*)url queryParams:(NSDictionary*)queryParams completion:(void(^)(NSError*, NSData*))completion {
+    [self makeNetworkRequest:url type:@"GET" headers:nil body:nil queryParams:queryParams completion:completion];
+}
+
 +(void)makePostRequest:(NSString*)url headers:(NSDictionary*)headers body:(NSData*)body completion:(void(^)(NSError*, NSData*))completion {
     [self makeNetworkRequest:url type:@"POST" headers:headers body:body queryParams:nil completion:completion];
 }

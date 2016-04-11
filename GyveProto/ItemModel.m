@@ -20,6 +20,8 @@
         self._id = json[@"_id"];
         self.title = json[@"title"];
         self.imageId = json[@"image"];
+        NSArray* coords = json[@"location"];
+        self.location = [[CLLocation alloc] initWithLatitude:((NSNumber*)coords[1]).doubleValue longitude:((NSNumber*)coords[0]).doubleValue];
     }
 
     return self;

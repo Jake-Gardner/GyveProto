@@ -8,7 +8,8 @@ var thingSchema = mongoose.Schema({
 	givenBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
 	gottenBy: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
 	passedBy: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
-	junkedBy: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}]
+	junkedBy: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
+	location: {type: [Number], index: "2d"}
 });
 
 module.exports = mongoose.model("Thing", thingSchema);

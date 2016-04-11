@@ -17,6 +17,7 @@ html
         a(href='thing/' + thing.image) #{thing.title}
         span &nbspcreated by #{thing.givenBy.fbId}
         ul
+          li Coordinates: #{thing.location[0]}, #{thing.location[1]}
           li Gotten by:
             each get in thing.gottenBy
               span &nbsp#{get.fbId}

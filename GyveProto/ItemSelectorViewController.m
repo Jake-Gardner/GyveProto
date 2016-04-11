@@ -76,12 +76,11 @@
 #define METERS_TO_MILES 1609.344
 
 - (void ) displayDistance {
-    //TODO get item location
-    CLLocation *itemLocation = [[CLLocation alloc] initWithLatitude:10 longitude:5];
-    
-    CLLocationDistance meters = [self.locationManager.location distanceFromLocation:itemLocation];
-    
-    self.distanceLabel.text = [NSString stringWithFormat:@"%4.0f Miles Away", meters/METERS_TO_MILES];
+    if (self.currentItem) {
+        CLLocationDistance meters = [self.locationManager.location distanceFromLocation:self.currentItem.location];
+
+        self.distanceLabel.text = [NSString stringWithFormat:@"%4.1f Miles Away", meters/METERS_TO_MILES];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
@@ -108,6 +107,8 @@
         self.itemImage.image = currentItem.image;
         self.itemTitle.text = currentItem.title;
     }
+
+    [self displayDistance];
 }
 
 #pragma mark - Interface interactions

@@ -3,8 +3,11 @@
 var mongoose = require("mongoose");
 var express = require("express");
 var bodyParser = require("body-parser");
+var morgan = require("morgan");
 var config = require("./config");
 var User = require("./models/User");
+
+mongoose.set("debug", true);
 
 // Overwrite built-in promise implementation
 mongoose.Promise = require("bluebird");
@@ -20,6 +23,7 @@ app.use(bodyParser.json());
 app.set("view engine", "jade");
 app.set("views", __dirname + "/views");
 app.use(express.static(__dirname + "/public"));
+app.use(morgan("dev"));
 
 var authRouter = express.Router();
 authRouter.use(function (req, res, next) {
@@ -49,7 +53,7 @@ require("./routes/thing.routes.js")(nonAuthRouter, authRouter);
 require("./routes/admin.routes.js")(nonAuthRouter, authRouter);
 
 http.listen(config.port, function () {
-	console.log("App listening at " + config.host + ":" + config.port);
+	console.log("\nApp listening at " + config.host + ":" + config.port + "\n\n");
 });
 
 require("./socket.io")(http);

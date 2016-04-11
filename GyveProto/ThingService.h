@@ -6,7 +6,7 @@
 +(ThingService*)sharedService;
 -(void)refreshThingList:(void(^)())callback;
 -(void)loadNextThing:(void(^)(ItemModel*))callback;
--(void)saveThing:(ItemModel*)item;
+-(void)saveThing:(UIImage*)image title:(NSString*)title;
 -(void)getThing:(ItemModel*)item;
 -(void)passThing:(ItemModel*)item;
 -(void)junkThing:(ItemModel*)item;
