@@ -6,6 +6,8 @@ var Promise = require("bluebird");
 var Image = require("../models/Image");
 var Thing = require("../models/Thing");
 
+//TODO: move db queries into a different file
+
 module.exports = function (nonAuthRouter, authRouter) {
 	authRouter.post("/thing", multer().single("image"), function (req, res) {
 		var title = (req.query.title || "").trim();
@@ -16,7 +18,7 @@ module.exports = function (nonAuthRouter, authRouter) {
 		}).then(function (img) {
 			return Thing.create({
 				image: img._id,
-				creator: req.user._id,
+				givenBy: req.user._id,
 				title: title
 			});
 		}).then(function () {
@@ -29,7 +31,13 @@ module.exports = function (nonAuthRouter, authRouter) {
 	authRouter.get("/things", function (req, res) {
 		console.log("Thing list requested");
 
-		Thing.find().then(function (things) {
+		//TODO: maybe remove values that aren't needed by client?
+		Thing.find({
+			givenBy: {$ne: req.user._id},
+			gottenBy: {$not: {$elemMatch: {$eq: req.user._id}}},
+			passedBy: {$not: {$elemMatch: {$eq: req.user._id}}},
+			junkedBy: {$not: {$elemMatch: {$eq: req.user._id}}}
+		}).then(function (things) {
 			res.json({
 				things: things
 			});
@@ -38,7 +46,7 @@ module.exports = function (nonAuthRouter, authRouter) {
 		});
 	});
 
-	authRouter.get("/thing/:id", function (req, res) {
+	nonAuthRouter.get("/image/:id", function (req, res) {
 		console.log("Item of id " + req.params.id + " requested");
 
 		Image.findById(req.params.id).then(function (image) {
@@ -49,6 +57,38 @@ module.exports = function (nonAuthRouter, authRouter) {
 			} else {
 				res.status(500).send(err);
 			}
+		});
+	});
+
+	//TODO: reduce duplication here (basic 200/500 handling)
+
+	authRouter.post("/thing/get/:id", function (req, res) {
+		Thing.update({_id: req.params.id}, {
+			$addToSet: {gottenBy: req.user._id}
+		}).then(function () {
+			res.sendStatus(200);
+		}).catch(function (err) {
+			res.status(500).send(err);
+		});
+	});
+
+	authRouter.post("/thing/pass/:id", function (req, res) {
+		Thing.update({_id: req.params.id}, {
+			$addToSet: {passedBy: req.user._id}
+		}).then(function () {
+			res.sendStatus(200);
+		}).catch(function (err) {
+			res.status(500).send(err);
+		});
+	});
+
+	authRouter.post("/thing/junk/:id", function (req, res) {
+		Thing.update({_id: req.params.id}, {
+			$addToSet: {junkedBy: req.user._id}
+		}).then(function () {
+			res.sendStatus(200);
+		}).catch(function (err) {
+			res.status(500).send(err);
 		});
 	});
 };

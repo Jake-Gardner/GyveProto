@@ -4,7 +4,7 @@
 
 @interface ThingService()
 
-@property NSMutableArray* ids;
+@property NSMutableArray* things;
 
 @end
 
@@ -27,10 +27,9 @@
             NSLog(@"Error making things get request: %@", err);
         } else if (data) {
             NSDictionary* res = [JSONParser parseDictionary:data];
-            self.ids = [NSMutableArray new];
+            self.things = [NSMutableArray new];
             for (NSDictionary* thing in res[@"things"]) {
-                // TODO: get other data from json here
-                [self.ids addObject:thing[@"image"]];
+                [self.things addObject:[[ItemModel alloc] initWithJson:thing]];
             }
         }
 
@@ -40,26 +39,27 @@
 
 -(void)loadNextThing:(void(^)(ItemModel*))callback {
     void(^doLoad)() = ^() {
-        NSString* next = [self.ids firstObject];
+        ItemModel* next = [self.things firstObject];
         if (!next) {
             callback(nil);
             return;
         }
 
-        [self.ids removeObject:next];
-        [NetworkRequest makeGetRequest:[@"thing/" stringByAppendingString:next] completion:^(NSError* err, NSData* data) {
+        [self.things removeObject:next];
+        [NetworkRequest makeGetRequest:[@"image/" stringByAppendingString:next.imageId] completion:^(NSError* err, NSData* data) {
             if (err) {
                 NSLog(@"Error making thing get request: %@", err);
                 callback(nil);
             } else if (data) {
-                callback([[ItemModel alloc] initWithImage:[UIImage imageWithData:data] title:@""]);
+                next.image = [UIImage imageWithData:data];
+                callback(next);
             } else {
                 callback(nil);
             }
         }];
     };
 
-    if (!self.ids) {
+    if (!self.things) {
         [self refreshThingList:doLoad];
     } else {
         doLoad();
@@ -88,12 +88,35 @@
                               };
 
     NSDictionary* params = @{
-                             @"user": @"USER_ID",
                              @"title": item.title
                              };
     [NetworkRequest makePostRequest:@"thing" headers:headers body:body queryParams:params completion:^(NSError* err, NSData* data) {
         if (err) {
             NSLog(@"Error making thing save request: %@", err);
+        }
+    }];
+}
+
+-(void)getThing:(ItemModel*)item {
+    [NetworkRequest makePostRequest:[@"thing/get/" stringByAppendingString:item._id] completion:^(NSError* err, NSData* data) {
+        if (err) {
+            NSLog(@"Error making thing get request: %@", err);
+        }
+    }];
+}
+
+-(void)passThing:(ItemModel*)item {
+    [NetworkRequest makePostRequest:[@"thing/pass/" stringByAppendingString:item._id] completion:^(NSError* err, NSData* data) {
+        if (err) {
+            NSLog(@"Error making thing pass request: %@", err);
+        }
+    }];
+}
+
+-(void)junkThing:(ItemModel*)item {
+    [NetworkRequest makePostRequest:[@"thing/junk/" stringByAppendingString:item._id] completion:^(NSError* err, NSData* data) {
+        if (err) {
+            NSLog(@"Error making thing junk request: %@", err);
         }
     }];
 }

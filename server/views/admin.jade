@@ -15,7 +15,16 @@ html
     each thing in things
       li
         a(href='thing/' + thing.image) #{thing.title}
-        span &nbspcreated by #{thing.creator}
+        span &nbspcreated by #{thing.givenBy.fbId}
         ul
+          li Gotten by:
+            each get in thing.gottenBy
+              span &nbsp#{get.fbId}
+          li Passed by:
+            each pass in thing.passedBy
+              span &nbsp#{pass.fbId}
+          li Junked by:
+            each junk in thing.junkedBy
+              span &nbsp#{junk.fbId}
           li
             a(href='admin/removeThing/' + thing._id) Delete

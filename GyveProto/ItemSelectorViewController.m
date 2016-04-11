@@ -113,17 +113,18 @@
 #pragma mark - Interface interactions
 
 - (IBAction)onSelectJunk:(id)sender {
-    // TODO: post to server, show next item
-    // [self refreshItemView];
+    [[ThingService sharedService] junkThing:self.currentItem];
+    [self refreshItemView];
 }
 
 - (IBAction)onSelectPass:(id)sender {
-    // TODO: post to server, show next item
-    //  [self refreshItemView];
+    [[ThingService sharedService] passThing:self.currentItem];
+    [self refreshItemView];
 }
 
 - (IBAction)onSelectWant:(id)sender {
     if (self.loggedIn) {
+        [[ThingService sharedService] getThing:self.currentItem];
         [self goToViewItemVC];
     } else {
         self.fbLoginWrapper.hidden = NO;

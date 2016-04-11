@@ -15,4 +15,14 @@
     return self;
 }
 
+-(ItemModel*)initWithJson:(NSDictionary*)json {
+    if (self = [super init]) {
+        self._id = json[@"_id"];
+        self.title = json[@"title"];
+        self.imageId = json[@"image"];
+    }
+
+    return self;
+}
+
 @end

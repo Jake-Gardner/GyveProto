@@ -14,6 +14,10 @@
     [self makeNetworkRequest:url type:@"POST" headers:headers body:body queryParams:queryParams completion:completion];
 }
 
++(void)makePostRequest:(NSString*)url completion:(void(^)(NSError*, NSData*))completion {
+    [self makeNetworkRequest:url type:@"POST" headers:nil body:[NSData new] queryParams:nil completion:completion];
+}
+
 +(void)makeNetworkRequest:(NSString*)url type:(NSString*)type headers:(NSDictionary*)headers body:(NSData*)body queryParams:(NSDictionary*)queryParams completion:(void(^)(NSError*, NSData*))completion {
     NSMutableString* fullUrl = [NSMutableString stringWithString:url];
     if (queryParams) {

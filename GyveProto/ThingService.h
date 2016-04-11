@@ -7,5 +7,8 @@
 -(void)refreshThingList:(void(^)())callback;
 -(void)loadNextThing:(void(^)(ItemModel*))callback;
 -(void)saveThing:(ItemModel*)item;
+-(void)getThing:(ItemModel*)item;
+-(void)passThing:(ItemModel*)item;
+-(void)junkThing:(ItemModel*)item;
 
 @end

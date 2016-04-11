@@ -7,7 +7,8 @@ var Thing = require("../models/Thing");
 
 module.exports = function (nonAuthRouter) {
 	nonAuthRouter.get("/admin", function (req, res) {
-		Promise.all([User.find(), Thing.find()]).spread(function (users, things) {
+		var getThings = Thing.find().populate("givenBy gottenBy passedBy junkedBy");
+		Promise.all([User.find(), getThings]).spread(function (users, things) {
 			res.render("admin", {
 				users: users || [],
 				things: things || []
@@ -48,10 +49,8 @@ module.exports = function (nonAuthRouter) {
 	});
 
 	nonAuthRouter.get("/admin/removeUser/:id", function (req, res) {
-		User.findOne({
+		User.findOneAndRemove({
 			fbId: req.params.id
-		}).then(function (user) {
-			return user.remove();
 		}).then(function () {
 			res.redirect("/admin");
 		}).catch(function (err) {
@@ -60,9 +59,7 @@ module.exports = function (nonAuthRouter) {
 	});
 
 	nonAuthRouter.get("/admin/removeThing/:id", function (req, res) {
-		Thing.findById(req.params.id).then(function (thing) {
-			return thing.remove();
-		}).then(function () {
+		Thing.findByIdAndRemove(req.params.id).then(function () {
 			res.redirect("/admin");
 		}).catch(function (err) {
 			res.status(500).send(err);
