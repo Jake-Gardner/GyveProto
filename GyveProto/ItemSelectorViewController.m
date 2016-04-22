@@ -31,6 +31,7 @@
     
     [self setupFBLogin];
     //todo login button for intial give
+    [self refreshItemView];
 }
 
 - (void) setupFBLogin {
@@ -112,12 +113,12 @@
 
 - (IBAction)onSelectJunk:(id)sender {
     // TODO: post to server, show next item
-    // [self refreshItemView];
+     [self refreshItemView];
 }
 
 - (IBAction)onSelectPass:(id)sender {
     // TODO: post to server, show next item
-    //  [self refreshItemView];
+      [self refreshItemView];
 }
 
 - (IBAction)onSelectWant:(id)sender {
