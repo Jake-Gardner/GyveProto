@@ -10,6 +10,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GiveListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GiveListTableViewCell"];
     
+    cell.parentVC = self;
+    
     return cell;
 }
 

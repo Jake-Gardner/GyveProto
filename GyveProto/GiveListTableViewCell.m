@@ -21,4 +21,12 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)messageButtonPressed:(id)sender {
+    
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
+    UIViewController* vc = [sb instantiateViewControllerWithIdentifier:@"MesssageViewController"];
+
+    [self.parentVC.navigationController pushViewController:vc animated:YES];
+}
+
 @end

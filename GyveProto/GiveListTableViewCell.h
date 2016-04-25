@@ -10,4 +10,6 @@
 
 @interface GiveListTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) UIViewController *parentVC;
+
 @end
