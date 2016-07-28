@@ -1,12 +1,28 @@
 var socket = io();
 
 $(document).ready(function () {
+	var user = $("#user").text();
+	var other = $("#otherUser").text().match(/with (.+)/)[1];
+	if (user && other) {
+		socket.emit("init chat", {
+			senderId: user,
+			receiverId: other
+		});
+	}
+
 	var input = $("#messageInput");
 
 	var submit = function () {
 		if (input.val().length > 0) {
-			socket.emit("message", input.val());
+			var text = input.val();
+			socket.emit("message", text);
 			input.val("");
+			addMsg({
+				text: text,
+				sender: {
+					fbId: user
+				}
+			})
 		}
 	};
 
@@ -17,18 +33,19 @@ $(document).ready(function () {
 		}
 	});
 
-	var user = $("#user").text();
-	var other = $("#otherUser").text();
-	if (user && other) {
-		socket.emit("initChat", {
-			user: user,
-			other: other
-		});
-	}
+	var addMsg = function (msg) {
+		var msgItem = $("<li></li>");
+		msgItem.text(msg.sender.fbId + ": " + msg.text);
+		$("#messages").append(msgItem);
+	};
 
 	socket.on("message", function (message) {
-		var msgItem = $("<li></li>");
-		msgItem.text(message);
-		$("#messages").append(msgItem);
+		addMsg(message);
+	});
+
+	socket.on("message list", list => {
+		list.forEach(function (item) {
+			addMsg(item);
+		});
 	});
 });
