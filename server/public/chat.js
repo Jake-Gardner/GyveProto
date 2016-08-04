@@ -17,12 +17,6 @@ $(document).ready(function () {
 			var text = input.val();
 			socket.emit("message", text);
 			input.val("");
-			addMsg({
-				text: text,
-				sender: {
-					fbId: user
-				}
-			})
 		}
 	};
 

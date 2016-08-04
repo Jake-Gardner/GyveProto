@@ -45,16 +45,17 @@ module.exports = function (server) {
 
 		socket.on("message", function (message) {
 			console.log("message received: " + message)
-			socket.broadcast.to(socket.roomKey).emit("message", {
-				text: message,
-				sender: socket.sender,
-				receiver: socket.receiver
-			})
 
 			ChatMessage.create({
 				text: message,
 				sender: socket.sender._id,
 				receiver: socket.receiver._id
+			}).then(() => {
+				io.to(socket.roomKey).emit("message", {
+					text: message,
+					sender: socket.sender,
+					receiver: socket.receiver
+				})
 			})
 		})
 	})
