@@ -1,5 +1,5 @@
 #import "ThingService.h"
-#import "NetworkRequest.h"
+#import "NetworkManager.h"
 #import "JSONParser.h"
 
 @interface ThingService()
@@ -26,7 +26,7 @@
                              @"longitude": @-122.42,
                              @"latitude": @37.8
                              };
-    [NetworkRequest makeGetRequest:@"things" queryParams:params completion:^(NSError* err, NSData* data) {
+    [[NetworkManager sharedManager] makeGetRequest:@"things" queryParams:params completion:^(NSError* err, NSData* data) {
         if (err) {
             NSLog(@"Error making things get request: %@", err);
         } else if (data) {
@@ -50,7 +50,7 @@
         }
 
         [self.things removeObject:next];
-        [NetworkRequest makeGetRequest:[@"image/" stringByAppendingString:next.imageId] completion:^(NSError* err, NSData* data) {
+        [[NetworkManager sharedManager] makeGetRequest:[@"image/" stringByAppendingString:next.imageId] completion:^(NSError* err, NSData* data) {
             if (err) {
                 NSLog(@"Error making thing get request: %@", err);
                 callback(nil);
@@ -96,7 +96,7 @@
                              @"longitude": @-122.41,
                              @"latitude": @37.79
                              };
-    [NetworkRequest makePostRequest:@"thing" headers:headers body:body queryParams:params completion:^(NSError* err, NSData* data) {
+    [[NetworkManager sharedManager] makePostRequest:@"thing" headers:headers body:body queryParams:params completion:^(NSError* err, NSData* data) {
         if (err) {
             NSLog(@"Error making thing save request: %@", err);
         }
@@ -104,7 +104,7 @@
 }
 
 -(void)getThing:(ItemModel*)item {
-    [NetworkRequest makePostRequest:[@"thing/get/" stringByAppendingString:item._id] completion:^(NSError* err, NSData* data) {
+    [[NetworkManager sharedManager] makePostRequest:[@"thing/get/" stringByAppendingString:item._id] completion:^(NSError* err, NSData* data) {
         if (err) {
             NSLog(@"Error making thing get request: %@", err);
         }
@@ -112,7 +112,7 @@
 }
 
 -(void)passThing:(ItemModel*)item {
-    [NetworkRequest makePostRequest:[@"thing/pass/" stringByAppendingString:item._id] completion:^(NSError* err, NSData* data) {
+    [[NetworkManager sharedManager] makePostRequest:[@"thing/pass/" stringByAppendingString:item._id] completion:^(NSError* err, NSData* data) {
         if (err) {
             NSLog(@"Error making thing pass request: %@", err);
         }
@@ -120,7 +120,7 @@
 }
 
 -(void)junkThing:(ItemModel*)item {
-    [NetworkRequest makePostRequest:[@"thing/junk/" stringByAppendingString:item._id] completion:^(NSError* err, NSData* data) {
+    [[NetworkManager sharedManager] makePostRequest:[@"thing/junk/" stringByAppendingString:item._id] completion:^(NSError* err, NSData* data) {
         if (err) {
             NSLog(@"Error making thing junk request: %@", err);
         }

@@ -6,6 +6,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "ItemSelectorViewController.h"
+#import "NetworkManager.h"
 
 @import CoreLocation;
 
@@ -37,13 +38,14 @@
 
 - (void) setupFBLogin {
     self.fbLoginWrapper.hidden = YES;
-    
+
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] initWithFrame:CGRectMake(0,0, self.fbButtonWrapper.frame.size.width, self.fbButtonWrapper.frame.size.height)];
     
     loginButton.readPermissions = @[@"email"];
     [self.fbButtonWrapper addSubview:loginButton];
     loginButton.delegate = self;
     [self startStandardUpdates];
+    [NetworkManager sharedManager].userId = [FBSDKAccessToken currentAccessToken].userID;
     self.loggedIn = [FBSDKAccessToken currentAccessToken];
 }
 
@@ -146,6 +148,7 @@
 # pragma mark - FBSDKLoginButtonDelegate
 - (void) loginButton: (FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error: (NSError *)error {
     if ([result.grantedPermissions containsObject:@"email"]) {
+        [NetworkManager sharedManager].userId = result.token.userID;
         self.loggedIn = YES;
         self.fbLoginWrapper.hidden = YES;
         

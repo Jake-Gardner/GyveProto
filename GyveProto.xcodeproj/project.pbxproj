@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D649B2691C960F3C00BD9C91 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D649B2681C960F3C00BD9C91 /* NetworkRequest.m */; };
 		D649B26C1C9A5A6500BD9C91 /* ThingService.m in Sources */ = {isa = PBXBuildFile; fileRef = D649B26B1C9A5A6500BD9C91 /* ThingService.m */; };
 		D649B26F1C9A601700BD9C91 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D649B26E1C9A601700BD9C91 /* JSONParser.m */; };
+		D6508F371D80FB9E00A3B2C7 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6508F361D80FB9E00A3B2C7 /* NetworkManager.m */; };
 		D6FAB2F31C70369F007311AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F21C70369F007311AD /* main.m */; };
 		D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F51C70369F007311AD /* AppDelegate.m */; };
 		D6FAB2F91C70369F007311AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F81C70369F007311AD /* ViewController.m */; };
@@ -117,12 +117,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D649B2671C960F3C00BD9C91 /* NetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
-		D649B2681C960F3C00BD9C91 /* NetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkRequest.m; sourceTree = "<group>"; };
 		D649B26A1C9A5A6500BD9C91 /* ThingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThingService.h; sourceTree = "<group>"; };
 		D649B26B1C9A5A6500BD9C91 /* ThingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThingService.m; sourceTree = "<group>"; };
 		D649B26D1C9A601700BD9C91 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
 		D649B26E1C9A601700BD9C91 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
+		D6508F351D80FB9E00A3B2C7 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		D6508F361D80FB9E00A3B2C7 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		D6FAB2EE1C70369F007311AD /* GyveProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyveProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FAB2F21C70369F007311AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6FAB2F41C70369F007311AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -270,8 +270,8 @@
 		D649B2661C960F2600BD9C91 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D649B2671C960F3C00BD9C91 /* NetworkRequest.h */,
-				D649B2681C960F3C00BD9C91 /* NetworkRequest.m */,
+				D6508F351D80FB9E00A3B2C7 /* NetworkManager.h */,
+				D6508F361D80FB9E00A3B2C7 /* NetworkManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -702,7 +702,6 @@
 				D6FAB2F91C70369F007311AD /* ViewController.m in Sources */,
 				D75C3A491CA49F81009ADE3B /* RatingView.m in Sources */,
 				D73360A81CB1C2240013C9B1 /* MesssageViewController.m in Sources */,
-				D649B2691C960F3C00BD9C91 /* NetworkRequest.m in Sources */,
 				D71C8FD21CA31C44008B1B4C /* RoundedBorderImage.m in Sources */,
 				D6FAB32A1C712ECF007311AD /* UIView+UIViewExtensions.m in Sources */,
 				D71C8FCB1CA317D0008B1B4C /* ProfileInfo.m in Sources */,
@@ -727,6 +726,7 @@
 				D76EEA1F1CC808C60010B636 /* SocketEngineWebsocket.swift in Sources */,
 				D76EEA201CC808C60010B636 /* SocketEventHandler.swift in Sources */,
 				D76EEA1C1CC808C60010B636 /* SocketEnginePacketType.swift in Sources */,
+				D6508F371D80FB9E00A3B2C7 /* NetworkManager.m in Sources */,
 				D6FAB3331C716E46007311AD /* UploadEditViewController.m in Sources */,
 				D76EEA241CC808C60010B636 /* SocketLogger.swift in Sources */,
 				D76EEA171CC808C60010B636 /* SocketAckManager.swift in Sources */,

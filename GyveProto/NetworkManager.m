@@ -1,28 +1,42 @@
-#import "NetworkRequest.h"
+#import "NetworkManager.h"
 
-@implementation NetworkRequest
+@interface NetworkManager ()
+@end
 
-+(void)makeGetRequest:(NSString*)url completion:(void(^)(NSError*, NSData*))completion {
+@implementation NetworkManager
+
++(id)sharedManager {
+    static NetworkManager *sharedManager;
+    static dispatch_once_t onceToken;
+
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+    });
+
+    return sharedManager;
+}
+
+-(void)makeGetRequest:(NSString*)url completion:(void(^)(NSError*, NSData*))completion {
     [self makeNetworkRequest:url type:@"GET" headers:nil body:nil queryParams:nil completion:completion];
 }
 
-+(void)makeGetRequest:(NSString*)url queryParams:(NSDictionary*)queryParams completion:(void(^)(NSError*, NSData*))completion {
+-(void)makeGetRequest:(NSString*)url queryParams:(NSDictionary*)queryParams completion:(void(^)(NSError*, NSData*))completion {
     [self makeNetworkRequest:url type:@"GET" headers:nil body:nil queryParams:queryParams completion:completion];
 }
 
-+(void)makePostRequest:(NSString*)url headers:(NSDictionary*)headers body:(NSData*)body completion:(void(^)(NSError*, NSData*))completion {
+-(void)makePostRequest:(NSString*)url headers:(NSDictionary*)headers body:(NSData*)body completion:(void(^)(NSError*, NSData*))completion {
     [self makeNetworkRequest:url type:@"POST" headers:headers body:body queryParams:nil completion:completion];
 }
 
-+(void)makePostRequest:(NSString*)url headers:(NSDictionary*)headers body:(NSData*)body queryParams:(NSDictionary*)queryParams completion:(void(^)(NSError*, NSData*))completion {
+-(void)makePostRequest:(NSString*)url headers:(NSDictionary*)headers body:(NSData*)body queryParams:(NSDictionary*)queryParams completion:(void(^)(NSError*, NSData*))completion {
     [self makeNetworkRequest:url type:@"POST" headers:headers body:body queryParams:queryParams completion:completion];
 }
 
-+(void)makePostRequest:(NSString*)url completion:(void(^)(NSError*, NSData*))completion {
+-(void)makePostRequest:(NSString*)url completion:(void(^)(NSError*, NSData*))completion {
     [self makeNetworkRequest:url type:@"POST" headers:nil body:[NSData new] queryParams:nil completion:completion];
 }
 
-+(void)makeNetworkRequest:(NSString*)url type:(NSString*)type headers:(NSDictionary*)headers body:(NSData*)body queryParams:(NSDictionary*)queryParams completion:(void(^)(NSError*, NSData*))completion {
+-(void)makeNetworkRequest:(NSString*)url type:(NSString*)type headers:(NSDictionary*)headers body:(NSData*)body queryParams:(NSDictionary*)queryParams completion:(void(^)(NSError*, NSData*))completion {
     NSMutableString* fullUrl = [NSMutableString stringWithString:url];
     if (queryParams) {
         [fullUrl appendString:@"?"];
@@ -45,8 +59,8 @@
         }
     }
 
-    [req setValue:@"USER_ID" forHTTPHeaderField:@"authorization"];       //TODO: get this from a global FB auth object or something
-    
+    [req setValue:self.userId forHTTPHeaderField:@"authorization"];
+
     if ([type isEqualToString:@"GET"]) {
         NSURLSessionDataTask* task = [session dataTaskWithRequest:req completionHandler:^(NSData* data, NSURLResponse* res, NSError* err) {
             if (err != nil) {
