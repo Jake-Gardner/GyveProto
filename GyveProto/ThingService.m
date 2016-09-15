@@ -70,7 +70,7 @@
     }
 }
 
--(void)saveThing:(UIImage*)image title:(NSString*)title {
+-(void)saveThing:(UIImage*)image title:(NSString*)title condition:(NSString*)condition {
     NSData* imageData = UIImagePNGRepresentation(image);
     NSString *boundaryConstant = @"----------V2ymHFg03ehbqgZCaKO6jy";
     NSString* filename = @"image file";
@@ -94,7 +94,8 @@
     NSDictionary* params = @{
                              @"title": title,
                              @"longitude": @-122.41,
-                             @"latitude": @37.79
+                             @"latitude": @37.79,
+                             @"condition": condition
                              };
     [[NetworkManager sharedManager] makePostRequest:@"thing" headers:headers body:body queryParams:params completion:^(NSError* err, NSData* data) {
         if (err) {

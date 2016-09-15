@@ -14,9 +14,10 @@ html
     h2 Things
     each thing in things
       li
-        a(href='thing/' + thing.image) #{thing.title}
+        a(href='image/' + thing.image) #{thing.title}
         span &nbspcreated by #{thing.givenBy._id}
         ul
+          li Condition: #{thing.condition}
           li Coordinates: #{thing.location[0]}, #{thing.location[1]}
           li Gotten by:
             each get in thing.gottenBy

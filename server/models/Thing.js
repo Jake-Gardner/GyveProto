@@ -1,9 +1,8 @@
-"use strict";
+const mongoose = require("mongoose");
 
-var mongoose = require("mongoose");
-
-var thingSchema = mongoose.Schema({
+const thingSchema = mongoose.Schema({
 	title: String,
+	condition: String,
 	image: {type: mongoose.Schema.Types.ObjectId, ref: "Image"},
 	givenBy: {type: String, ref: "User"},
 	gottenBy: [{type: String, ref: "User"}],

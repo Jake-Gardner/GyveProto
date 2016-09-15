@@ -8,28 +8,29 @@ const config = require("../config");
 
 module.exports = (nonAuthRouter, authRouter) => {
 	authRouter.post("/thing", multer().single("image"), (req, res) => {
-		var title = (req.query.title || "").trim();
+		const title = (req.query.title || "").trim();
 		console.log("Received image " + title + " of size " + req.file.size);
 
 		Image.create({
 			data: req.file.buffer
-		}).then(function (img) {
+		}).then(img => {
 			return Thing.create({
 				image: img._id,
 				givenBy: req.user._id,
 				title: title,
+				condition: req.query.condition,
 				location: [req.query.longitude, req.query.latitude]
 			});
-		}).then(function () {
+		}).then(() => {
 			res.sendStatus(200);
-		}).catch(function (err) {
+		}).catch(err => {
 			res.status(500).send(err);
 		});
 	});
 
 	nonAuthRouter.get("/things", function (req, res) {
-		var coordinates = [req.query.longitude, req.query.latitude];
-		var maxDist = config.maxDistanceKm / 6371 / Math.PI * 180;	//Convert km to degrees
+		const coordinates = [req.query.longitude, req.query.latitude];
+		const maxDist = config.maxDistanceKm / 6371 / Math.PI * 180;	//Convert km to degrees
 
 		console.log("Thing list requested at location: ", coordinates);
 
@@ -46,21 +47,19 @@ module.exports = (nonAuthRouter, authRouter) => {
 		//TODO: maybe remove values that aren't needed by client?
 		Thing.find(query)
 		.limit(config.maxItemResults)
-		.then(function (things) {
-			res.json({
-				things: things
-			});
-		}).catch(function (err) {
+		.then(things => {
+			res.json({things});
+		}).catch(err => {
 			res.status(500).send(err);
 		});
 	});
 
-	nonAuthRouter.get("/image/:id", function (req, res) {
+	nonAuthRouter.get("/image/:id", (req, res) => {
 		console.log("Item of id " + req.params.id + " requested");
 
-		Image.findById(req.params.id).then(function (image) {
+		Image.findById(req.params.id).then(image => {
 			res.type("png").send(image.data);
-		}).catch(function (err) {
+		}).catch(err => {
 			if (err.name === "CastError") {
 				res.sendStatus(404);
 			} else {
@@ -71,32 +70,32 @@ module.exports = (nonAuthRouter, authRouter) => {
 
 	//TODO: reduce duplication here (basic 200/500 handling)
 
-	authRouter.post("/thing/get/:id", function (req, res) {
+	authRouter.post("/thing/get/:id", (req, res) => {
 		Thing.update({_id: req.params.id}, {
 			$addToSet: {gottenBy: req.user._id}
-		}).then(function () {
+		}).then(() => {
 			res.sendStatus(200);
-		}).catch(function (err) {
+		}).catch(err => {
 			res.status(500).send(err);
 		});
 	});
 
-	authRouter.post("/thing/pass/:id", function (req, res) {
+	authRouter.post("/thing/pass/:id", (req, res) => {
 		Thing.update({_id: req.params.id}, {
 			$addToSet: {passedBy: req.user._id}
-		}).then(function () {
+		}).then(() => {
 			res.sendStatus(200);
-		}).catch(function (err) {
+		}).catch(err => {
 			res.status(500).send(err);
 		});
 	});
 
-	authRouter.post("/thing/junk/:id", function (req, res) {
+	authRouter.post("/thing/junk/:id", (req, res) => {
 		Thing.update({_id: req.params.id}, {
 			$addToSet: {junkedBy: req.user._id}
-		}).then(function () {
+		}).then(() => {
 			res.sendStatus(200);
-		}).catch(function (err) {
+		}).catch(err => {
 			res.status(500).send(err);
 		});
 	});

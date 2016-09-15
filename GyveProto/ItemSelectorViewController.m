@@ -11,7 +11,7 @@
 @import CoreLocation;
 
 @interface ItemSelectorViewController ()<CLLocationManagerDelegate, FBSDKLoginButtonDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *noItemsLabel;
+@property (weak, nonatomic) IBOutlet UIView *viewWrapper;
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
@@ -103,7 +103,7 @@
 -(void)setCurrentItem:(ItemModel *)currentItem {
     _currentItem = currentItem;
     
-    self.noItemsLabel.hidden = !!currentItem;
+    self.viewWrapper.hidden = !currentItem;
     
     if (currentItem) {
         self.itemImage.image = currentItem.image;
