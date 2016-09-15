@@ -3,7 +3,7 @@
 var mongoose = require("mongoose");
 
 var userSchema = mongoose.Schema({
-	fbId: String,
+	_id: String,
 	displayName: String,
 	getCount: {
 		type: Number,

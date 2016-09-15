@@ -1,0 +1,12 @@
+{
+  "verbose": true,
+  "watch": [
+    "index.js",
+    "config.js",
+    "socket.io.js",
+    "config.js",
+    "routes/",
+    "models/",
+    "views/"
+  ]
+}

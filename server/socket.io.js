@@ -14,11 +14,7 @@ module.exports = function (server) {
 		socket.on("init chat", function ({senderId, receiverId}) {
 			console.log("Starting chat between " + senderId + " and " + receiverId)
 
-			const userPromises = [User.findOne({
-				fbId: senderId
-			}), User.findOne({
-				fbId: receiverId
-			})]
+			const userPromises = [User.findById(senderId), User.findById(receiverId)]
 
 			Promise.all(userPromises).then(([user, other]) => {
 				socket.sender = user

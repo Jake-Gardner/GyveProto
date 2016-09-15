@@ -6,9 +6,8 @@ module.exports = function (nonAuthRouter) {
 	nonAuthRouter.get("/user/:id", function (req, res) {
 		console.log("User info for user " + req.params.id + " requested");
 
-		User.findOne({
-			fbId: req.params.id
-		}).then(function (user) {
+		//todo: this would just be on req.user
+		User.findById(req.params.id).then(function (user) {
 			if (user) {
 				return user;
 			}
@@ -17,7 +16,7 @@ module.exports = function (nonAuthRouter) {
 			console.log("No user with id " + req.params.id + " found, creating new one");
 
 			return User.create({
-				fbId: req.params.id
+				_id: req.params.id
 			});
 		}).then(function (user) {
 			res.json(user);

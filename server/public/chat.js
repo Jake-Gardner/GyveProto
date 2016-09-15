@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 	var addMsg = function (msg) {
 		var msgItem = $("<li></li>");
-		msgItem.text(msg.sender.fbId + ": " + msg.text);
+		msgItem.text(msg.sender._id + ": " + msg.text);
 		$("#messages").append(msgItem);
 	};
 

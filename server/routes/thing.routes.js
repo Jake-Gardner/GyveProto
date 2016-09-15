@@ -1,16 +1,13 @@
-"use strict";
-
-var multer = require("multer");
-var _ = require("lodash/core");
-var Promise = require("bluebird");
-var Image = require("../models/Image");
-var Thing = require("../models/Thing");
-var config = require("../config");
+const multer = require("multer");
+const _ = require("lodash/core");
+const Image = require("../models/Image");
+const Thing = require("../models/Thing");
+const config = require("../config");
 
 //TODO: move db queries into a different file
 
-module.exports = function (nonAuthRouter, authRouter) {
-	authRouter.post("/thing", multer().single("image"), function (req, res) {
+module.exports = (nonAuthRouter, authRouter) => {
+	authRouter.post("/thing", multer().single("image"), (req, res) => {
 		var title = (req.query.title || "").trim();
 		console.log("Received image " + title + " of size " + req.file.size);
 
@@ -30,20 +27,24 @@ module.exports = function (nonAuthRouter, authRouter) {
 		});
 	});
 
-	authRouter.get("/things", function (req, res) {
+	nonAuthRouter.get("/things", function (req, res) {
 		var coordinates = [req.query.longitude, req.query.latitude];
 		var maxDist = config.maxDistanceKm / 6371 / Math.PI * 180;	//Convert km to degrees
 
 		console.log("Thing list requested at location: ", coordinates);
 
-		//TODO: maybe remove values that aren't needed by client?
-		Thing.find({
+		const query = req.user ? {
 			givenBy: {$ne: req.user._id},
 			gottenBy: {$not: {$elemMatch: {$eq: req.user._id}}},
 			passedBy: {$not: {$elemMatch: {$eq: req.user._id}}},
 			junkedBy: {$not: {$elemMatch: {$eq: req.user._id}}},
 			location: {$near: coordinates, $maxDistance: maxDist}
-		})
+		} : {
+			location: {$near: coordinates, $maxDistance: maxDist}
+		}
+
+		//TODO: maybe remove values that aren't needed by client?
+		Thing.find(query)
 		.limit(config.maxItemResults)
 		.then(function (things) {
 			res.json({

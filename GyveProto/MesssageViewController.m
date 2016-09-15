@@ -33,7 +33,7 @@
 }
 
 -(void) addMessage:(NSDictionary*)msg {
-    NSString* name = msg[@"sender"][@"fbId"];
+    NSString* name = msg[@"sender"][@"_id"];
     [self.messages addObject:[NSString stringWithFormat:@"%@: %@", name, msg[@"text"]]];
     [self.chatTableView reloadData];
 }

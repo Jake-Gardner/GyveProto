@@ -1,14 +1,11 @@
-"use strict";
-
-var Promise = require("bluebird");
-var User = require("../models/User");
-var Image = require("../models/Image");
-var Thing = require("../models/Thing");
+const User = require("../models/User");
+const Image = require("../models/Image");
+const Thing = require("../models/Thing");
 
 module.exports = function (nonAuthRouter) {
 	nonAuthRouter.get("/admin", function (req, res) {
 		var getThings = Thing.find().populate("givenBy gottenBy passedBy junkedBy");
-		Promise.all([User.find(), getThings]).spread(function (users, things) {
+		Promise.all([User.find(), getThings]).then(([users, things]) => {
 			res.render("admin", {
 				users: users || [],
 				things: things || []
@@ -19,9 +16,7 @@ module.exports = function (nonAuthRouter) {
 	});
 
 	nonAuthRouter.get("/admin/chat/:userId", function (req, res) {
-		var promises = [User.findOne({
-			fbId: req.params.userId
-		})];
+		var promises = [User.findById(req.params.userId)];
 
 		if (req.query.with) {
 			if (req.params.userId === req.query.with) {
@@ -29,15 +24,13 @@ module.exports = function (nonAuthRouter) {
 				return;
 			}
 
-			promises.push(User.findOne({
-				fbId: req.query.with
-			}));
+			promises.push(User.findById(req.query.with));
 		}
 
-		Promise.all(promises).spread(function (user, otherUser) {
+		Promise.all(promises).then(([user, otherUser]) => {
 			res.render("admin-chat", {
-				userId: user.fbId,
-				otherUserId: otherUser ? otherUser.fbId : null
+				userId: user._id,
+				otherUserId: otherUser ? otherUser._id : null
 			});
 		}).catch(function (err) {
 			res.status(500).send(err);
@@ -49,9 +42,7 @@ module.exports = function (nonAuthRouter) {
 	});
 
 	nonAuthRouter.get("/admin/removeUser/:id", function (req, res) {
-		User.findOneAndRemove({
-			fbId: req.params.id
-		}).then(function () {
+		User.findByIdAndRemove(req.params.id).then(function () {
 			res.redirect("/admin");
 		}).catch(function (err) {
 			res.status(500).send(err);

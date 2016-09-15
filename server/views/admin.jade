@@ -5,27 +5,27 @@ html
     h2 Users
     each user in users
       li
-        div id: #{user.fbId}
+        div id: #{user._id}
         ul
           li Gives: #{user.giveCount}
           li Gets: #{user.getCount}
           li
-            a(href='admin/removeUser/' + user.fbId) Delete
+            a(href='admin/removeUser/' + user._id) Delete
     h2 Things
     each thing in things
       li
         a(href='thing/' + thing.image) #{thing.title}
-        span &nbspcreated by #{thing.givenBy.fbId}
+        span &nbspcreated by #{thing.givenBy._id}
         ul
           li Coordinates: #{thing.location[0]}, #{thing.location[1]}
           li Gotten by:
             each get in thing.gottenBy
-              span &nbsp#{get.fbId}
+              span &nbsp#{get._id}
           li Passed by:
             each pass in thing.passedBy
-              span &nbsp#{pass.fbId}
+              span &nbsp#{pass._id}
           li Junked by:
             each junk in thing.junkedBy
-              span &nbsp#{junk.fbId}
+              span &nbsp#{junk._id}
           li
             a(href='admin/removeThing/' + thing._id) Delete
