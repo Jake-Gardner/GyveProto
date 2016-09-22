@@ -1,12 +1,6 @@
-//
-//  ProfileViewController.m
-//  GyveProto
-//
-//  Created by Nick Zankich on 3/24/16.
-//  Copyright © 2016 Jake Gardner, CTO. All rights reserved.
-//
-
 #import "ProfileViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface ProfileViewController ()
 
@@ -14,5 +8,14 @@
 
 @implementation ProfileViewController
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.center = self.view.center;
+    [self.view addSubview:loginButton];
+
+    // TODO: kick user back out to main screen on logout?
+}
 
 @end
