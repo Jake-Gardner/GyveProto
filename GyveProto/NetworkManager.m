@@ -1,8 +1,5 @@
 #import "NetworkManager.h"
 
-@interface NetworkManager ()
-@end
-
 @implementation NetworkManager
 
 +(id)sharedManager {

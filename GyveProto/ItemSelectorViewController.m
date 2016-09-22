@@ -7,15 +7,13 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "ItemSelectorViewController.h"
 #import "NetworkManager.h"
-
-@import CoreLocation;
+#import "LocationManager.h"
 
 @interface ItemSelectorViewController ()<CLLocationManagerDelegate, FBSDKLoginButtonDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewWrapper;
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
-@property (nonatomic,retain) CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UIView *itemActionWrapper;
 @property (strong, nonatomic) IBOutlet UIView *fbLoginWrapper;
 @property (strong, nonatomic) IBOutlet UIView *fbButtonWrapper;
@@ -34,6 +32,12 @@
     //todo login button for intial give
 
     [self refreshItemView];
+
+    [[LocationManager shared] registerForUpdates:15.0 predicate:^(CLLocation* location) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self displayDistance];
+        });
+    }];
 }
 
 - (void) setupFBLogin {
@@ -44,50 +48,17 @@
     loginButton.readPermissions = @[@"email"];
     [self.fbButtonWrapper addSubview:loginButton];
     loginButton.delegate = self;
-    [self startStandardUpdates];
     [NetworkManager sharedManager].userId = [FBSDKAccessToken currentAccessToken].userID;
     self.loggedIn = [FBSDKAccessToken currentAccessToken];
-}
-
-- (void)startStandardUpdates {
-    // Create the location manager if this object does not
-    // already have one.
-    self.locationManager = [[CLLocationManager alloc] init];
-    
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    
-    // Set a movement threshold for new events.
-    self.locationManager.distanceFilter = 500; // meters
-    
-    [self.locationManager requestWhenInUseAuthorization];
-    
-    [self.locationManager startUpdatingLocation];
-    [self displayDistance];
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation* location = [locations lastObject];
-    NSDate* eventDate = location.timestamp;
-    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-    if (fabs(howRecent) < 15.0) {
-        [self displayDistance];
-    }
 }
 
 #define METERS_TO_MILES 1609.344
 
 - (void ) displayDistance {
     if (self.currentItem) {
-        CLLocationDistance meters = [self.locationManager.location distanceFromLocation:self.currentItem.location];
+        CLLocationDistance meters = [[LocationManager shared] metersFromLocation:self.currentItem.location];
 
         self.distanceLabel.text = [NSString stringWithFormat:@"%4.1f Miles Away", meters/METERS_TO_MILES];
-    }
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    //todo log error
-    if ([error code] != kCLErrorLocationUnknown) {
     }
 }
 

@@ -10,6 +10,7 @@
 		D649B26C1C9A5A6500BD9C91 /* ThingService.m in Sources */ = {isa = PBXBuildFile; fileRef = D649B26B1C9A5A6500BD9C91 /* ThingService.m */; };
 		D649B26F1C9A601700BD9C91 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D649B26E1C9A601700BD9C91 /* JSONParser.m */; };
 		D6508F371D80FB9E00A3B2C7 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6508F361D80FB9E00A3B2C7 /* NetworkManager.m */; };
+		D67B065B1D936CFD009F64F4 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D67B065A1D936CFD009F64F4 /* LocationManager.m */; };
 		D6FAB2F31C70369F007311AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F21C70369F007311AD /* main.m */; };
 		D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F51C70369F007311AD /* AppDelegate.m */; };
 		D6FAB2F91C70369F007311AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F81C70369F007311AD /* ViewController.m */; };
@@ -122,6 +123,8 @@
 		D649B26E1C9A601700BD9C91 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
 		D6508F351D80FB9E00A3B2C7 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		D6508F361D80FB9E00A3B2C7 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		D67B06591D936CFD009F64F4 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		D67B065A1D936CFD009F64F4 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		D6FAB2EE1C70369F007311AD /* GyveProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyveProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FAB2F21C70369F007311AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6FAB2F41C70369F007311AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 			children = (
 				D6508F351D80FB9E00A3B2C7 /* NetworkManager.h */,
 				D6508F361D80FB9E00A3B2C7 /* NetworkManager.m */,
+				D67B06591D936CFD009F64F4 /* LocationManager.h */,
+				D67B065A1D936CFD009F64F4 /* LocationManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -732,6 +737,7 @@
 				D76EEA191CC808C60010B636 /* SocketClientSpec.swift in Sources */,
 				D7E784551CA7B1D0009EE5D2 /* GiveListTableViewCell.m in Sources */,
 				D6FAB3381C717E54007311AD /* ItemModel.m in Sources */,
+				D67B065B1D936CFD009F64F4 /* LocationManager.m in Sources */,
 				D6FAB3301C71693B007311AD /* UIViewController+UIViewControllerExtensions.m in Sources */,
 				D76EEA211CC808C60010B636 /* SocketIOClient.swift in Sources */,
 				D649B26F1C9A601700BD9C91 /* JSONParser.m in Sources */,
