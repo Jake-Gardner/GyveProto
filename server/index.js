@@ -1,5 +1,3 @@
-"use strict";
-
 const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -30,14 +28,14 @@ const authRouter = express.Router();
 authRouter.use((req, res, next) => {
 	if (req.headers.authorization) {
 		User.findById(req.headers.authorization)
-		.then(user => {
-			if (user) {
-				req.user = user;
-				next();
-			} else {
-				res.sendStatus(401);
-			}
-		});
+			.then(user => {
+				if (user) {
+					req.user = user;
+					next();
+				} else {
+					res.sendStatus(401);
+				}
+			});
 	} else {
 		res.sendStatus(401);
 	}
@@ -47,10 +45,10 @@ const nonAuthRouter = express.Router();
 nonAuthRouter.use((req, res, next) => {
 	if (req.headers.authorization) {
 		User.findById(req.headers.authorization)
-		.then(user => {
-			req.user = user;
-			next();
-		});
+			.then(user => {
+				req.user = user;
+				next();
+			});
 	} else {
 		next();
 	}
@@ -59,12 +57,12 @@ nonAuthRouter.use((req, res, next) => {
 app.use("/", nonAuthRouter);
 app.use("/", authRouter);
 
-require("./routes/user.routes.js")(nonAuthRouter, authRouter);
-require("./routes/thing.routes.js")(nonAuthRouter, authRouter);
-require("./routes/admin.routes.js")(nonAuthRouter, authRouter);
+require("./routes/user.routes")(nonAuthRouter, authRouter);
+require("./routes/thing.routes")(nonAuthRouter, authRouter);
+require("./routes/admin.routes")(nonAuthRouter, authRouter);
 
 http.listen(app.get("port"), () => {
 	console.log(`\nApp listening at ${config.host}:${app.get("port")}\n\n`);
 });
 
-require("./socket.io")(http);
+require("./routes/chat.routes")(http);

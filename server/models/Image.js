@@ -1,8 +1,6 @@
-"use strict";
+const mongoose = require("mongoose");
 
-var mongoose = require("mongoose");
-
-var imageSchema = mongoose.Schema({
+const imageSchema = mongoose.Schema({
 	data: Buffer
 });
 
