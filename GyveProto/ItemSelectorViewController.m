@@ -8,6 +8,7 @@
 #import "ItemSelectorViewController.h"
 #import "NetworkManager.h"
 #import "LocationManager.h"
+#import "UserManager.h"
 
 @interface ItemSelectorViewController ()<CLLocationManagerDelegate, FBSDKLoginButtonDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewWrapper;
@@ -29,7 +30,6 @@
     [super viewDidLoad];
     
     [self setupFBLogin];
-    //todo login button for intial give
 
     [self refreshItemView];
 
@@ -45,10 +45,10 @@
 
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] initWithFrame:CGRectMake(0,0, self.fbButtonWrapper.frame.size.width, self.fbButtonWrapper.frame.size.height)];
     
-    loginButton.readPermissions = @[@"email"];
+//    loginButton.readPermissions = @[@"email", @"public_profile"];
     [self.fbButtonWrapper addSubview:loginButton];
-    loginButton.delegate = self;
-    [NetworkManager sharedManager].userId = [FBSDKAccessToken currentAccessToken].userID;
+    loginButton.delegate = [UserManager shared];
+//    [NetworkManager sharedManager].userId = [FBSDKAccessToken currentAccessToken].userID;
     self.loggedIn = [FBSDKAccessToken currentAccessToken];
 }
 
@@ -119,7 +119,8 @@
 # pragma mark - FBSDKLoginButtonDelegate
 - (void) loginButton: (FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error: (NSError *)error {
     if ([result.grantedPermissions containsObject:@"email"]) {
-        [NetworkManager sharedManager].userId = result.token.userID;
+//        [NetworkManager sharedManager].userId = result.token.userID;
+//        [[UserManager shared] logIn:result.token.userID];
         self.loggedIn = YES;
         self.fbLoginWrapper.hidden = YES;
         
@@ -134,8 +135,8 @@
     
 }
 
-- (BOOL) loginButtonWillLogin:(FBSDKLoginButton *)loginButton {
-    return YES;
-}
+//- (BOOL) loginButtonWillLogin:(FBSDKLoginButton *)loginButton {
+//    return YES;
+//}
 
 @end

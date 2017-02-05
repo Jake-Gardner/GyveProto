@@ -2,8 +2,6 @@
 
 @interface NetworkManager : NSObject
 
-@property NSString* userId;
-
 +(NetworkManager*)sharedManager;
 
 -(void)makeGetRequest:(NSString*)url completion:(void(^)(NSError*, NSData*))completion;

@@ -11,6 +11,7 @@
 		D649B26F1C9A601700BD9C91 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D649B26E1C9A601700BD9C91 /* JSONParser.m */; };
 		D6508F371D80FB9E00A3B2C7 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6508F361D80FB9E00A3B2C7 /* NetworkManager.m */; };
 		D67B065B1D936CFD009F64F4 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D67B065A1D936CFD009F64F4 /* LocationManager.m */; };
+		D67B065E1D937D29009F64F4 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D67B065D1D937D29009F64F4 /* UserManager.m */; };
 		D6FAB2F31C70369F007311AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F21C70369F007311AD /* main.m */; };
 		D6FAB2F61C70369F007311AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F51C70369F007311AD /* AppDelegate.m */; };
 		D6FAB2F91C70369F007311AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAB2F81C70369F007311AD /* ViewController.m */; };
@@ -125,6 +126,8 @@
 		D6508F361D80FB9E00A3B2C7 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		D67B06591D936CFD009F64F4 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		D67B065A1D936CFD009F64F4 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		D67B065C1D937D29009F64F4 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		D67B065D1D937D29009F64F4 /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		D6FAB2EE1C70369F007311AD /* GyveProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyveProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FAB2F21C70369F007311AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6FAB2F41C70369F007311AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 				D6508F361D80FB9E00A3B2C7 /* NetworkManager.m */,
 				D67B06591D936CFD009F64F4 /* LocationManager.h */,
 				D67B065A1D936CFD009F64F4 /* LocationManager.m */,
+				D67B065C1D937D29009F64F4 /* UserManager.h */,
+				D67B065D1D937D29009F64F4 /* UserManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -698,6 +703,7 @@
 				D7EA87AC1C9B3FC700881A1C /* BorderView.m in Sources */,
 				D76EEA2A1CC808C60010B636 /* WebSocket.swift in Sources */,
 				D76EEA231CC808C60010B636 /* SocketIOClientStatus.swift in Sources */,
+				D67B065E1D937D29009F64F4 /* UserManager.m in Sources */,
 				D649B26C1C9A5A6500BD9C91 /* ThingService.m in Sources */,
 				D6FAB2F91C70369F007311AD /* ViewController.m in Sources */,
 				D75C3A491CA49F81009ADE3B /* RatingView.m in Sources */,

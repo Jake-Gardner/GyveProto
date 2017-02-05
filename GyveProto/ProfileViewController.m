@@ -1,6 +1,6 @@
 #import "ProfileViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "UserManager.h"
 
 @interface ProfileViewController ()
 
@@ -12,10 +12,14 @@
     [super viewDidLoad];
 
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+//    loginButton.readPermissions = @[@"email", @"public_profile", @"user_photos"];
+    loginButton.delegate = [UserManager shared];
     loginButton.center = self.view.center;
     [self.view addSubview:loginButton];
 
-    // TODO: kick user back out to main screen on logout?
+    UIView* profilePic = [UserManager shared].profilePicture;
+    profilePic.frame = CGRectMake(0, 0, 100, 100);
+    [self.view addSubview:profilePic];
 }
 
 @end

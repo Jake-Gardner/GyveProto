@@ -52,6 +52,7 @@
     self.handler = predicate;
     self.updateFrequency = frequency;
 }
+
 -(CLLocationDistance)metersFromLocation:(CLLocation *)location {
     return [self.locationManager.location distanceFromLocation:location];
 }

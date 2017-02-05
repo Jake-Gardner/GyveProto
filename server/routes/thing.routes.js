@@ -63,8 +63,6 @@ module.exports = (nonAuthRouter, authRouter) => {
 			});
 	});
 
-	// TODO: reduce duplication here (basic 200/500 handling)
-
 	authRouter.post("/thing/get/:id", (req, res) => {
 		// TODO: isn't there a findByIdAndUpdate?
 		Thing.update({ _id: req.params.id }, {

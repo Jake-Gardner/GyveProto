@@ -1,4 +1,5 @@
 #import "NetworkManager.h"
+#import "UserManager.h"
 
 @implementation NetworkManager
 
@@ -56,7 +57,7 @@
         }
     }
 
-    [req setValue:self.userId forHTTPHeaderField:@"authorization"];
+    [req setValue:[UserManager shared].userId forHTTPHeaderField:@"authorization"];
 
     if ([type isEqualToString:@"GET"]) {
         NSURLSessionDataTask* task = [session dataTaskWithRequest:req completionHandler:^(NSData* data, NSURLResponse* res, NSError* err) {
